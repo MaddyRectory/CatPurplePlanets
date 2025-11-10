@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:18 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/07 17:46:03 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:56:17 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 #define EXIT_FAIL 1
 
 // ===== CLASS DECLARATION =====
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -43,35 +45,27 @@ public:
     int const &         getGradeToEx() const;
     bool const &        getSignState() const;
 
+    void checkSignedStatus();
     
     void beSigned(Bureaucrat const & buro);
+    
+    // ----EXEPTIONS ---------
+    //
+    class GradeTooHigh : public std::exception {
+        public: virtual const char * what() const throw(); };
+    
+    class GradeTooLow : public std::exception {
+        public: virtual const char * what() const throw();};
+    
+    class FormAlreadySigned : public std::exception {
+        public: virtual const char * what() const throw(); };
 };
 
 std::ostream & operator<<(std::ostream & s, Form const & to_print );
 
 
-// ----EXEPTIONS ---------
-//
-class GradeTooHighException : public std::exception {
-    public:
-        virtual const char* what() const throw() {
-            return "Creation denied : highest grade is 1.\n " ;
-        }
-};
 
-class GradeTooLowException : public std::exception {
-    public:
-        virtual const char* what() const throw() {
-            return "Creation denied : lowest grade is 150.\n " ;
-        };
-};
 
-class FormAlreadySigned : public std::exception {
-    public:
-        virtual const char* what() const throw() {
-            return "This form is already signed, I can't do it again.\n " ;
-        };
-};
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/07 18:19:42 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/10 20:06:18 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void){
     try
     {
     Form F("Test", 25, 10);
-    std::cout << CYAN "Form's info : "<< F << RESET;
+    std::cout << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
@@ -30,7 +30,7 @@ int main(void){
     try
     {
     Form F("sign_to_low", 250, 10);
-    std::cout << CYAN "Form's info : "<< F << RESET;
+    std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
@@ -40,7 +40,7 @@ int main(void){
     try
     {
     Form F("sign_to_high", 0, 10);
-    std::cout << CYAN "Form's info : "<< F << RESET;
+    std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
@@ -50,7 +50,7 @@ int main(void){
     try
     {
     Form F("sign_to_low", 25, 1000);
-    std::cout << CYAN "Form's info : "<< F << RESET;
+    std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
@@ -60,7 +60,7 @@ int main(void){
     try
     {
     Form F("sign_to_high", 25, 0);
-    std::cout << CYAN "Form's info : "<< F << RESET;
+    std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
@@ -81,10 +81,10 @@ int main(void){
     std::cout << CYAN "Form's info : "<< devil_deal << RESET "\n";
 
     std:: cout << "[Try to sign same form again]\n";
-    devil_deal.beSigned(john);
+    john.signForm(devil_deal);
     std::cout << CYAN "Form's info : "<< devil_deal << RESET "\n";
     }
-    catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+    catch(const std::exception &e) {
+        
     }
 }

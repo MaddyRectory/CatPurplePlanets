@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:01 by mairivie          #+#    #+#             */
-/*   Updated: 2025/10/29 17:10:18 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:25:24 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // ===== INCLUDES =====
 #include "colors.hpp"
+#include "Form.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -26,38 +27,34 @@
 // ===== CLASS DECLARATION =====
 class Bureaucrat
 {
-private:
-    std::string const  _name;
-    int           _rank;
+    private:
+        std::string const  _name;
+        int           _rank;
 
-public:
-    Bureaucrat();
-    Bureaucrat(std::string const & name, int rank);
-    Bureaucrat(Bureaucrat const & toCopy);
-    Bureaucrat const &operator=(Bureaucrat const & toCopy);
-    ~Bureaucrat();
-    
-    std::string const  & getName() const;
-    int const & getRank() const;
-    int setRank(int const newRank);
-
-class GradeTooHighException : public std::exception {
     public:
-        virtual const char* what() const throw() {
-            return "ERROR : Cannot set rank value : highest grade is 1.\n " ;
-        }
-};
+        Bureaucrat();
+        Bureaucrat(std::string const & name, int rank);
+        Bureaucrat(Bureaucrat const & toCopy);
+        Bureaucrat const &operator=(Bureaucrat const & toCopy);
+        ~Bureaucrat();
+        
+        std::string const  & getName() const;
+        int const & getRank() const;
+        int setRank(int const newRank);
 
-class GradeTooLowException : public std::exception {
-    public:
-        virtual const char* what() const throw() 
-        {
-            return ("ERROR : Cannot set rank value : lowest grade is 150.\n ");
-        };
-};
+    class GradeTooHigh : public std::exception {
+        public:
+            virtual const char* what() const throw(); 
+    };
 
-void promote();
-void demote();
+    class GradeTooLow : public std::exception {
+        public:
+            virtual const char* what() const throw(); 
+    };
+
+    void promote();
+    void demote();
+    void signForm(Form & f);
 
 };
 

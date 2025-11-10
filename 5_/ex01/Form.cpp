@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/07 18:24:29 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/10 20:07:01 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Form::Form(std::string const & name, int const sign_rk, int const ex_rk)
               << ". Unsigned.\n" 
               << RESET;
     if ((_grade_to_sign > 150) || (_grade_to_ex > 150)) 
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLow();
     if ((_grade_to_sign < 1) || (_grade_to_ex < 1)) 
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHigh();
     
     _is_signed = 0;
     std::cout << GREEN  << _name << "'s creation confirmed.\n\n";
@@ -71,30 +71,51 @@ bool const & Form::getSignState() const{
     return _is_signed;
 }
 
+void Form::checkSignedStatus() {
+    if(_is_signed)
+        throw Form::FormAlreadySigned();
+}
+
+const char * Form::GradeTooLow::what() const throw() {
+    return "his grade is to law ! (must be <= 150).\n" ;
+}
+
+const char * Form::GradeTooHigh::what() const throw() {
+        return "grade to high (must be >= 1).\n" ;
+}
+
+const char * Form::FormAlreadySigned::what() const throw() {
+        return "this form is already signed.\n" ;
+}
+
+
 void Form::beSigned(Bureaucrat const & buro) {
-    std::cout << CYAN "Hi " << buro.getName() 
-            << "! Could you please sign that for the boss ?\n" RESET;
-    if (_is_signed == 1) {
-        std::cout << YELLOW "WAIT !! SOMETHING IS WRONG !! ABORT, ABOOORT !!!\n" << RESET;
-        throw FormAlreadySigned();
-    }
+    std::cout << CYAN "Hi " << buro.getName() << "! Could you approve this " << _name << " ?\n" RESET;
+    
+    if (_is_signed == 1)
+        throw Form::FormAlreadySigned();
+        
     buro.getRank() <= _grade_to_sign ?
-         _is_signed = 1 : throw GradeTooLowException();
-    std::cout << GREEN "Thx " << buro.getName() 
-            << " she needed this " << _name
-            <<" yesterday ! See you at the coffee machine !\n" RESET;
+         _is_signed = 1 
+         : throw Bureaucrat::GradeTooLow();
+         
+    std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
+    std::cout << CYAN "Thx " << buro.getName() 
+            <<". See you at the coffee machine !\n" RESET;
     
 }
 
+
+
 std::ostream & operator<<(std::ostream & s, Form const & to_print ) {
-     std::cout << CYAN 
-              << "This is a form " << to_print.getName() 
-              << ".\nIt can be signed by grade " << to_print.getGradeToSign() 
-              << " and higher and need at least grade " << to_print.getGradeToEx() 
-              << " to execute it.\nPlease note that " 
-              << RESET;
+     std::cout << PURPLE 
+              << "Form's name: " << to_print.getName() 
+              << " / Grade min to sign : " << to_print.getGradeToSign() 
+              << " / Grade min to exec: " << to_print.getGradeToEx() 
+              << " / Status ? ";
     to_print.getSignState() ?
-        std::cout << GREEN "it's already signed.\n" : std::cout << RED "it's not signed yet\n";
+        std::cout << GREEN "[Signed]\n" 
+        : std::cout << YELLOW "[Empty]\n";
     std::cout << RESET;
     return s;
 }
