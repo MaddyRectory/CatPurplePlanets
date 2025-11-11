@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/10 20:07:01 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:38:27 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Form::Form(std::string const & name, int const sign_rk, int const ex_rk)
         throw Bureaucrat::GradeTooHigh();
     
     _is_signed = 0;
-    std::cout << GREEN  << _name << "'s creation confirmed.\n\n";
+    std::cout << GREEN  << _name << "'s creation confirmed.\n\n" << RESET;
 }
 
 Form::Form(const Form &toCopy)  
@@ -50,8 +50,8 @@ Form Form::operator=(const Form &toCopy) {
 
 Form::~Form() {
         std::cout   << BLUE << "[Form Destructor]"
-                    << " -> Form " << _name 
-                    << " safely shredded !\n" 
+                    << " -> Form " RESET << _name 
+                    << BLUE " safely shredded !\n" 
                     << RESET;
 }
 
@@ -77,11 +77,7 @@ void Form::checkSignedStatus() {
 }
 
 const char * Form::GradeTooLow::what() const throw() {
-    return "his grade is to law ! (must be <= 150).\n" ;
-}
-
-const char * Form::GradeTooHigh::what() const throw() {
-        return "grade to high (must be >= 1).\n" ;
+    return "his grade is to law !\n" ;
 }
 
 const char * Form::FormAlreadySigned::what() const throw() {
@@ -97,7 +93,7 @@ void Form::beSigned(Bureaucrat const & buro) {
         
     buro.getRank() <= _grade_to_sign ?
          _is_signed = 1 
-         : throw Bureaucrat::GradeTooLow();
+         : throw Form::GradeTooLow();
          
     std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
     std::cout << CYAN "Thx " << buro.getName() 

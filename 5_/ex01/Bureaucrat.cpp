@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/10 19:49:02 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:37:50 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Bureaucrat const & Bureaucrat::operator=(Bureaucrat const & toCopy)
 }
 
 Bureaucrat::~Bureaucrat() {
-std::cout <<  getName() <<  BLUE " ! You're fired ! (Bureaucrat destructor)\n" << RESET << std::endl;
+std::cout <<  getName() <<  BLUE " ! You're fired ! (Bureaucrat destructor)" << RESET << std::endl;
 }
 
 std::string const  & Bureaucrat::getName() const {
