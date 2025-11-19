@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/11 15:38:27 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:30:31 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Form.hpp"
 
 // Form::Form() {
-// std::cout << BLUE << "Call Form default constructor." << RESET << std::endl;
+//     std::cout << CYAN << "Call Form default constructor.\n" << RESET ;
 // }
 
 Form::Form(std::string const & name, int const sign_rk, int const ex_rk) 
@@ -39,20 +39,15 @@ Form::Form(const Form &toCopy)
     : _name(toCopy._name), _grade_to_sign(toCopy._grade_to_sign), _grade_to_ex(toCopy._grade_to_ex) {
 }
 
-Form Form::operator=(const Form &toCopy) {
+Form & Form::operator=(const Form &toCopy) {
     if(this != &toCopy)
-    {
-        Form newForm(toCopy._name, toCopy._grade_to_sign, toCopy._grade_to_ex);
-        return newForm;
-    }
-    return toCopy;
+        _is_signed = toCopy._is_signed;
+    return *this;
 }
 
 Form::~Form() {
-        std::cout   << BLUE << "[Form Destructor]"
-                    << " -> Form " RESET << _name 
-                    << BLUE " safely shredded !\n" 
-                    << RESET;
+        std::cout   << BLUE << "[Form Destructor] -> Form " << _name 
+                    << " safely shredded !\n" << RESET;
 }
 
 std::string const & Form::getName() const {

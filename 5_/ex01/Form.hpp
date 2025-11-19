@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:18 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/10 18:56:17 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:30:43 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ private:
 public:
     Form(std::string const & name, int const grade_to_sign, int const grade_to_ex);
     Form(const Form &toCopy);
-    Form operator=(const Form &toCopy);
+    Form & operator=(const Form &toCopy);
     ~Form();
 
     std::string const & getName() const;

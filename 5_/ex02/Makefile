@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/11/11 15:57:20 by mairivie         ###   ########.fr        #
+#    Updated: 2025/11/19 14:40:22 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 NAME = bureaucrat
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp \
+SRCS = main.cpp Bureaucrat.cpp AAform.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \
 	PresidentialPardonForm.cpp \

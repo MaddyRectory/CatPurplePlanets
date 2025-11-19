@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AAform.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:18 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/10 18:56:17 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:37:44 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef Aform_HPP
+#define Aform_HPP
 
 // ===== INCLUDES =====
 #include "Bureaucrat.hpp"
@@ -26,21 +26,23 @@
 // ===== CLASS DECLARATION =====
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
     std::string const & _name;
+    std::string const & _target; //All forms need a target => _private in AClass
     int const _grade_to_sign;
     int const _grade_to_ex;
     bool _is_signed;
 
 public:
-    Form(std::string const & name, int const grade_to_sign, int const grade_to_ex);
-    Form(const Form &toCopy);
-    Form operator=(const Form &toCopy);
-    ~Form();
+    AForm(std::string const & name, std::string const & target, int const grade_to_sign, int const grade_to_ex);
+    AForm(const AForm &toCopy);
+    AForm & operator=(const AForm &toCopy);
+    virtual ~AForm() = 0;
 
     std::string const & getName() const;
+    std::string const & getTarget() const;
     int const &         getGradeToSign() const;
     int const &         getGradeToEx() const;
     bool const &        getSignState() const;
@@ -61,7 +63,7 @@ public:
         public: virtual const char * what() const throw(); };
 };
 
-std::ostream & operator<<(std::ostream & s, Form const & to_print );
+std::ostream & operator<<(std::ostream & s, AForm const & to_print );
 
 
 
