@@ -6,32 +6,30 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:30 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/19 18:10:05 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:45:00 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-#define PPForm PresidentialPardonForm
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) 
     : AForm("PresidentialPardon", target, 25, 5)  {}
     
 PresidentialPardonForm::PresidentialPardonForm(const PPForm &toCopy) 
     : AForm(toCopy) {}
-
-PresidentialPardonForm & PresidentialPardonForm::operator=(const PPForm &toCopy) {
-    if(this != &toCopy) {
-       this->_is_signed = toCopy.getSignState();
-    }
-    return *this;
-}
     
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
+//--------- OPERATOR --------------
+    
+PresidentialPardonForm & PresidentialPardonForm::operator=(const PPForm &toCopy) {
+    if(this != &toCopy) 
+        AForm::operator=(toCopy);
+    return *this;
+}
 
-//
-//
-// TODO 20 NOV : POURQUOI OPERATOR = PLANTE
-//
-//
+
+void PresidentialPardonForm::execute() {
+    std::cout << GREEN "Dear " << AForm::getTarget << " , today is your lucky day :\n"
+        << "you have been pardoned by Zaphod Beeblebrox ! Come back to work." RESET;
+}

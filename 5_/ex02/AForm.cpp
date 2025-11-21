@@ -83,9 +83,8 @@ bool const & AForm::getSignState() const{
 // EXEPTIONS 
 // ---------------------------------------------------
 
-void AForm::checkSignedStatus() {
-    if(_is_signed)
-        throw AForm::FormAlreadySigned();
+const char * AForm::GradeTooHigh::what() const throw() {
+    return "his grade is to high !\n" ; 
 }
 
 const char * AForm::GradeTooLow::what() const throw() {
@@ -96,9 +95,18 @@ const char * AForm::FormAlreadySigned::what() const throw() {
         return "this Aform is already signed.\n" ;
 }
 
+const char * AForm::FormUnsigned::what() const throw() {
+        return "this Aform is already signed.\n" ;
+}
+
 // ---------------------------------------------------
 // FT MEMBERS
 // ---------------------------------------------------
+
+void AForm::checkSignedStatus() {
+    if(_is_signed)
+        throw AForm::FormAlreadySigned();
+}
 
 void AForm::beSigned(Bureaucrat const & buro) {
     std::cout << CYAN "Hi " << buro.getName() << "! Could you approve this " << _name << " ?\n" RESET;
@@ -110,10 +118,25 @@ void AForm::beSigned(Bureaucrat const & buro) {
          _is_signed = 1 
          : throw AForm::GradeTooLow();
          
-    std::cout << GREEN "Grumphy Bureaucrat quickly sign the Aform without reading it.\n";    
+    std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
     std::cout << CYAN "Thx " << buro.getName() 
             <<". See you at the coffee machine !\n" RESET;
     
+}
+
+void AForm::beExecuted(Bureaucrat const & buro) {
+    std::cout << CYAN "Hi " << buro.getName() << "! Could you execute this " << _name << " ?\n" RESET;
+    
+    if (_is_signed == 0)
+        throw AForm::FormUnsigned();
+        
+    if (buro.getRank() <= _grade_to_ex)
+        throw AForm::GradeTooLow();
+         
+    std::cout << GREEN "Executor stamps the form. and give it back.\n";    
+    std::cout << CYAN "Perfect ! Let's give " << _target << " this " << _name << ".\n" RESET ;
+
+    this -> execute();
 }
 
 //------------------------------------------------------

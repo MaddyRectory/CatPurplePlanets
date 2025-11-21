@@ -48,8 +48,9 @@ public:
     bool const &        getSignState() const;
 
     void checkSignedStatus();
-    
     void beSigned(Bureaucrat const & buro);
+    void beExecuted(Bureaucrat const & buro);
+    virtual void execute() = 0;
     
     // ----EXEPTIONS ---------
     //
@@ -61,13 +62,11 @@ public:
     
     class FormAlreadySigned : public std::exception {
         public: virtual const char * what() const throw(); };
+
+    class FormUnsigned : public std::exception {
+        public: virtual const char * what() const throw(); };
 };
 
 std::ostream & operator<<(std::ostream & s, AForm const & to_print );
-
-
-
-
-
 
 #endif
