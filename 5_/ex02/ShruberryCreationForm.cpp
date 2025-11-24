@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/21 17:02:57 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:51:39 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ ShruberryCreationForm & ShruberryCreationForm::operator=(const SCForm & toCopy) 
     return *this;
 }
 
-void ShruberryCreationForm::execute(const Bureaucrat & buro) {
+void ShruberryCreationForm::execute() {
     
 }

@@ -6,12 +6,12 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:27 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 11:09:42 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:23:52 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PresidentialPardonForm_HPP
-#define PresidentialPardonForm_HPP
+    #define PresidentialPardonForm_HPP
 
 // ===== INCLUDES =====
 #include <iostream>
@@ -27,7 +27,7 @@ class Bureaucrat;
 
 class PresidentialPardonForm : public AForm {
     private:
-
+        //
     public:
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(const PPForm &toCopy);

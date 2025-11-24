@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:01 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 11:13:02 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:50:02 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 // ===== DEFINE CLEAN CODE =====
 
 // ===== CLASS DECLARATION =====
+class AForm;
+
 class Bureaucrat
 {
     private:
