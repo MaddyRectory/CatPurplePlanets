@@ -48,8 +48,8 @@ public:
 
     void checkSignedStatus();
     void beSigned(Bureaucrat const & buro);
-    void beExecuted(Bureaucrat const & buro);
-    virtual void execute() = 0;
+    void execute(Bureaucrat const & buro);
+    virtual void action() = 0;
     
     // ----EXEPTIONS ---------
     //

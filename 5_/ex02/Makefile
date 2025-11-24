@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/11/24 14:07:20 by mairivie         ###   ########.fr        #
+#    Updated: 2025/11/24 15:23:03 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = bureaucrat
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp \
 	RobotomyRequestForm.cpp \
 	PresidentialPardonForm.cpp \
-#	ShrubberyCreationForm.cpp
+	ShruberryCreationForm.cpp
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

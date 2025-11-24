@@ -23,7 +23,7 @@ AForm::AForm(std::string const & name, std::string const & target,
             << ". Target = " << _target  
             << ". grade_to_sign = " << _grade_to_sign 
             << ". grade_to_ex = " << _grade_to_ex 
-            << "." << RESET;
+            << ".\n" << RESET;
 
     if ((_grade_to_sign > 150) || (_grade_to_ex > 150)) 
         throw Bureaucrat::GradeTooLow();
@@ -50,10 +50,7 @@ AForm & AForm::operator=(const AForm &toCopy) {
 }
 
 AForm::~AForm() {
-        std::cout   << CYAN << "[AForm Destructor]"
-                    << " -> AForm " RESET << _name 
-                    << CYAN " safely shredded !\n" 
-                    << RESET;
+        std::cout   << CYAN << "[Default Form Destructor]\n" RESET ;
 } 
 
 // ---------------------------------------------------
@@ -125,7 +122,7 @@ void AForm::beSigned(Bureaucrat const & buro) {
     
 }
 
-void AForm::beExecuted(Bureaucrat const & buro) {
+void AForm::execute(Bureaucrat const & buro) {
     std::cout << CYAN "Hi " << buro.getName() << "! Could you execute this " << _name << " ?\n" RESET;
     
     if (_is_signed == 0)
@@ -135,9 +132,9 @@ void AForm::beExecuted(Bureaucrat const & buro) {
         throw AForm::GradeTooLow();
          
     std::cout << GREEN "Executor stamps the form. and give it back.\n";    
-    std::cout << CYAN "Perfect ! Let's give " << _target << " this " << _name << ".\n" RESET ;
+    std::cout << CYAN "Perfect ! Let's give to " << _target << " this " << _name << ".\n" RESET ;
 
-    this -> execute();
+    this -> action();
 }
 
 //------------------------------------------------------

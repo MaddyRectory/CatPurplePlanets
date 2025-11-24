@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:27 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 12:23:52 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:07:03 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ class PresidentialPardonForm : public AForm {
     public:
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(const PPForm &toCopy);
-        ~PresidentialPardonForm();
+        virtual ~PresidentialPardonForm();
         
         PresidentialPardonForm & operator=(const PPForm &toCopy);
 
-        virtual void execute();
+        virtual void action();
 
 };
 #endif

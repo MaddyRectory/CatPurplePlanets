@@ -46,11 +46,13 @@ Interface = classe avec que des methodes pure
 
 */
 #include "colors.hpp"
-#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShruberryCreationForm.hpp"
 
 int main(void){
 
-    std:: cout << "\n------ Test Bur00 : Best workers get promotions ------\n" << std::endl;
+    std:: cout << "\n------ Test Bur00 : Best workers get promotions -----------------\n" << std::endl;
     try
     {
     Bureaucrat A("Good", 150);
@@ -73,10 +75,10 @@ int main(void){
     
     }
     catch (const std::exception & e){
-        std::cout << e.what(); 
+        std::cout << e.what() << std::endl; 
     }
     
-    std:: cout << "\n------ Test Bur01 : Lazy workers are demoted ------\n" << std::endl;
+    std:: cout << "\n------ Test Bur01 : Lazy workers are demoted -----------------" << std::endl;
     try
     {
     Bureaucrat A("Stupid", 149);
@@ -99,9 +101,18 @@ int main(void){
     
     }
     catch (const std::exception & e){
-        std::cout << e.what(); 
+        std::cout << e.what() << std::endl; 
     }
 
-    
+    std:: cout << "\n ------ New Forms : construct & destroy ----------------------" << std::endl;
+    try
+        {
+        RobotomyRequestForm rrf("SubjectA ");
+        PresidentialPardonForm ppf("InnocentMan");
+        ShruberryCreationForm scf("Garden");
+        }
+    catch (const std::exception & e){
+        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+    }
     return 0;
 }

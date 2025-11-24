@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:30 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 13:48:59 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:12:15 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 PresidentialPardonForm::PresidentialPardonForm(const PPForm &toCopy) 
     : AForm(toCopy) {}
     
-PresidentialPardonForm::~PresidentialPardonForm() {}
+PresidentialPardonForm::~PresidentialPardonForm() {
+    std::cout   << CYAN << "Pardon Form safely shredded !\n" RESET ;
+}
+    
 
 //--------- OPERATOR --------------
     
@@ -30,7 +33,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PPForm &toCopy)
 }
 
 
-void PresidentialPardonForm::execute() {
+void PresidentialPardonForm::action() {
     std::cout << GREEN "Dear " << AForm::getTarget() << " , today is your lucky day :\n"
         << "you have been pardoned by Zaphod Beeblebrox ! Now come back to work." RESET;
 }

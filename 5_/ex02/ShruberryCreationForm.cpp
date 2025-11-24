@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 12:51:39 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:19:14 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ ShruberryCreationForm::ShruberryCreationForm(std::string target)
 ShruberryCreationForm::ShruberryCreationForm(const SCForm & toCopy)
     : AForm(toCopy) {}
 
-ShruberryCreationForm::~ShruberryCreationForm() {}
+ShruberryCreationForm::~ShruberryCreationForm() {
+    std::cout   << CYAN << "Shruberry Form safely shredded !\n" RESET ;
+}
 
 ShruberryCreationForm & ShruberryCreationForm::operator=(const SCForm & toCopy) {
     if (this != &toCopy)
@@ -27,6 +29,6 @@ ShruberryCreationForm & ShruberryCreationForm::operator=(const SCForm & toCopy) 
     return *this;
 }
 
-void ShruberryCreationForm::execute() {
-    
+void ShruberryCreationForm::action() {
+    std::cout << "OMG a Shruberry !\n";
 }

@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:22 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 13:49:15 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:11:52 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 RobotomyRequestForm::RobotomyRequestForm(const RRForm & toCopy) 
     : AForm::AForm(toCopy) {}
 
-RobotomyRequestForm::~RobotomyRequestForm() {}
+RobotomyRequestForm::~RobotomyRequestForm() {
+    std::cout   << CYAN << "Robotomy Form safely shredded !\n" RESET ;
+}
 
 
 RobotomyRequestForm & RobotomyRequestForm::operator=(const RRForm & toCopy) {
@@ -38,14 +40,14 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RRForm & toCopy) {
 }
 
 
-void RobotomyRequestForm::execute() {
-    srand((unsigned int)time(0));
-
+void RobotomyRequestForm::action() {
+    
     std::cout << CYAN "*Brrrr Krrrr Kssssss Drrrrrill*\n" << RESET;
     
+    srand((unsigned int)time(0));
     int brainXplosion = rand()%2;
     if(brainXplosion)
-        std::cout << RED "*KABOOM !*\nOups, I think the robotomy failed.\n" << RESET;
+        std::cout << RED "*KABOOM !*\nOups, I think the robotomy failed.\n\n" << RESET;
     else
-        std::cout << GREEN "Subject " << AForm::getTarget() << "has been robotomised with success !\n";
+        std::cout << GREEN "TODOOM !*\nSubject " << AForm::getTarget() << "has been robotomised with success !\n\n";
 }
