@@ -6,11 +6,12 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:30 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/21 12:45:00 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:09:47 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+#include "colors.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) 
     : AForm("PresidentialPardon", target, 25, 5)  {}

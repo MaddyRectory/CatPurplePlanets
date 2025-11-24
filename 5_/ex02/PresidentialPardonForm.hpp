@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:27 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/21 12:13:26 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:09:42 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 #define PresidentialPardonForm_HPP
 
 // ===== INCLUDES =====
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "colors.hpp"
 #include <iostream>
 #include <string>
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 // ===== DEFINE CLEAN CODE =====
-#define EXIT_SUCCESS 0
-#define EXIT_FAIL 1
 #define PPForm PresidentialPardonForm
 
 // ===== CLASS DECLARATION =====
