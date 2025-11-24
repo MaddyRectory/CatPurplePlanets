@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:01 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/10 18:25:24 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/24 11:13:02 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 #define Bureaucrat_HPP
 
 // ===== INCLUDES =====
-#include "colors.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>
 
 // ===== DEFINE CLEAN CODE =====
-#define EXIT_SUCCESS 0
-#define EXIT_FAIL 1
 
 // ===== CLASS DECLARATION =====
 class Bureaucrat
@@ -54,7 +51,7 @@ class Bureaucrat
 
     void promote();
     void demote();
-    void signForm(Form & f);
+    void signForm(AForm & f);
 
 };
 
