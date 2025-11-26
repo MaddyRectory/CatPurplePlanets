@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:27 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 15:07:03 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 // ===== INCLUDES =====
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/AForm.hpp"
 
 // ===== DEFINE CLEAN CODE =====
 #define PPForm PresidentialPardonForm

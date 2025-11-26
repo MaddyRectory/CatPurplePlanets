@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:22 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 15:11:52 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 //         << "you have been pardoned by Zaphod Beeblebrox ! Come back to work." RESET;
 // }
 
-#include "colors.hpp"
-#include "RobotomyRequestForm.hpp"
+#include "../include/colors.hpp"
+#include "../include/RobotomyRequestForm.hpp"
 #include <ctime> // time 
 #include <cstdlib> // rand()
 

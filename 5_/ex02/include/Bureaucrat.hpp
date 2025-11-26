@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:01 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 13:50:02 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define Bureaucrat_HPP
 
 // ===== INCLUDES =====
-#include "AForm.hpp"
+#include "../include/AForm.hpp"
 #include <iostream>
 #include <string>
 #include <stdexcept>

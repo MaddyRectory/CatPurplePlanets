@@ -6,12 +6,12 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 11:32:16 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "colors.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/colors.hpp"
 
 Bureaucrat::Bureaucrat() {
     std::cout << BLUE << "Call default Bureaucrat constructor.\n"

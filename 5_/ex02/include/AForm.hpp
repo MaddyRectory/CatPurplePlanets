@@ -14,7 +14,7 @@
 #define Aform_HPP
 
 // ===== INCLUDES =====
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 #include <iostream>
 #include <string>
 

@@ -45,10 +45,10 @@ Interface = classe avec que des methodes pure
     interface ne peut pas avoir d'atributs
 
 */
-#include "colors.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShruberryCreationForm.hpp"
+#include "../include/../include/colors.hpp"
+#include "../include/PresidentialPardonForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShruberryCreationForm.hpp"
 
 int main(void){
 

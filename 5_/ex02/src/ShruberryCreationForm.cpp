@@ -6,12 +6,12 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/24 15:19:14 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShruberryCreationForm.hpp"
-#include "colors.hpp"
+#include "../include/ShruberryCreationForm.hpp"
+#include "../include/colors.hpp"
 
 ShruberryCreationForm::ShruberryCreationForm(std::string target) 
     : AForm("ShruberryCreationForm", target, 145, 137) {}

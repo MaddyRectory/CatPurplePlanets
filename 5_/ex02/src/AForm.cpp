@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "colors.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/AForm.hpp"
+#include "../include/colors.hpp"
 
 AForm::AForm(std::string const & name, std::string const & target,
                 int const sign_rk, int const ex_rk) 
