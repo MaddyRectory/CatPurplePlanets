@@ -28,7 +28,7 @@ class Bureaucrat;
 class AForm
 {
 private:
-    std::string const & _name;
+    std::string const  _name;
     std::string const & _target; //All forms need a target => _private in AClass
     int const _grade_to_sign;
     int const _grade_to_ex;

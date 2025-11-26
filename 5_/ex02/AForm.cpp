@@ -31,7 +31,7 @@ AForm::AForm(std::string const & name, std::string const & target,
         throw Bureaucrat::GradeTooHigh();
     
     _is_signed = 0;
-    std::cout << GREEN "Unsigned " << _name << "'s creation confirmed.\n\n" << RESET;
+    std::cout << GREEN "Unsigned " << getName() << "'s creation confirmed.\n\n" << RESET << std::endl;
 }
 
 AForm::AForm(const AForm &toCopy)  : 
@@ -107,7 +107,9 @@ void AForm::checkSignedStatus() {
 }
 
 void AForm::beSigned(Bureaucrat const & buro) {
-    std::cout << CYAN "Hi " << buro.getName() << "! Could you approve this " << _name << " ?\n" RESET;
+    std::cout << CYAN "Hi " << buro.getName() 
+            << "! Could you approve this " << this -> _name 
+            << " ?\n" RESET;
     
     if (_is_signed == 1)
         throw AForm::FormAlreadySigned();
@@ -123,7 +125,7 @@ void AForm::beSigned(Bureaucrat const & buro) {
 }
 
 void AForm::execute(Bureaucrat const & buro) {
-    std::cout << CYAN "Hi " << buro.getName() << "! Could you execute this " << _name << " ?\n" RESET;
+    std::cout << CYAN "Hi " << buro.getName() << "! Could you execute this " << this -> _name << " ?\n" RESET;
     
     if (_is_signed == 0)
         throw AForm::FormUnsigned();
@@ -132,7 +134,7 @@ void AForm::execute(Bureaucrat const & buro) {
         throw AForm::GradeTooLow();
          
     std::cout << GREEN "Executor stamps the form. and give it back.\n";    
-    std::cout << CYAN "Perfect ! Let's give to " << _target << " this " << _name << ".\n" RESET ;
+    std::cout << CYAN "Perfect ! Let's give to " << this -> _target << " this " << this -> _name << ".\n" RESET ;
 
     this -> action();
 }

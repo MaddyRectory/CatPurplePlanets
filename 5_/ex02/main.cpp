@@ -114,5 +114,28 @@ int main(void){
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
+
+    std:: cout << "\n ------ New Forms : sign then exec ----------------------" << std::endl;
+    try
+        {
+        Bureaucrat b("BigBoss", 1);
+
+        PresidentialPardonForm ppf("InnocentMan");
+        // std::cout << ppf.getName() << std::endl;
+        ppf.beSigned(b);
+        ppf.execute(b);
+        // RobotomyRequestForm rrf("SubjectA ");
+        // rrf.beSigned(b);
+        // rrf.execute(b);
+        // ShruberryCreationForm scf("Garden");
+        // scf.beSigned(b);
+        // scf.execute(b);
+
+
+        }
+    catch (const std::exception & e){
+        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+    }
+
     return 0;
 }
