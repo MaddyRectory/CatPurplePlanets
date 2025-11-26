@@ -1,10 +1,4 @@
 /*
-creation announce destruction (check form permission)
-Shrub
-Rbo
-pard
-
-
 
 TODO: check char inerdits dans noms de fichier asef efasdasfsdfas
 Si oui check target > ex target invalid
@@ -45,7 +39,7 @@ Interface = classe avec que des methodes pure
     interface ne peut pas avoir d'atributs
 
 */
-#include "../include/../include/colors.hpp"
+#include "../include/colors.hpp"
 #include "../include/PresidentialPardonForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/ShruberryCreationForm.hpp"
@@ -126,7 +120,7 @@ int main(void){
         RobotomyRequestForm rrf("SubjectA ");
         rrf.beSigned(b);
         rrf.execute(b);
-        ShruberryCreationForm scf("Garden");
+        ShruberryCreationForm scf("Garden.txt");
         scf.beSigned(b);
         scf.execute(b);
 
