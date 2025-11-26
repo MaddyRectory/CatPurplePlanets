@@ -119,23 +119,33 @@ int main(void){
     try
         {
         Bureaucrat b("BigBoss", 1);
-
+        
         PresidentialPardonForm ppf("InnocentMan");
-        // std::cout << ppf.getName() << std::endl;
         ppf.beSigned(b);
         ppf.execute(b);
-        // RobotomyRequestForm rrf("SubjectA ");
-        // rrf.beSigned(b);
-        // rrf.execute(b);
-        // ShruberryCreationForm scf("Garden");
-        // scf.beSigned(b);
-        // scf.execute(b);
+        RobotomyRequestForm rrf("SubjectA ");
+        rrf.beSigned(b);
+        rrf.execute(b);
+        ShruberryCreationForm scf("Garden");
+        scf.beSigned(b);
+        scf.execute(b);
 
 
         }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
+
+
+
+    // RobotomyRequestForm rrf("SubjectA ");
+    // RobotomyRequestForm rrfb("SubjectB ");
+    // rrf.beSigned(b);
+    // rrf.execute(b);
+    //         rrf.execute(b);
+    // rrfb.beSigned(b);
+    // rrfb.execute(b);
+    //         rrfb.execute(b); 
 
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 12:34:38 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/26 18:08:16 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/11/26 18:12:21 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@
 #define BG_MAGENTA "\033[45m"
 #define BG_CYAN "\033[46m"
 #define BG_WHITE "\033[47m"
-
-#define test "coucou"
 
 #endif

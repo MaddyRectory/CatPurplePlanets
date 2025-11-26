@@ -110,14 +110,11 @@ void AForm::beSigned(Bureaucrat const & buro) {
     std::cout << CYAN "Hi " << buro.getName() 
             << "! Could you approve this " << this -> _name 
             << " ?\n" RESET;
-    
     if (_is_signed == 1)
         throw AForm::FormAlreadySigned();
-        
     buro.getRank() <= _grade_to_sign ?
          _is_signed = 1 
-         : throw AForm::GradeTooLow();
-         
+         : throw AForm::GradeTooLow();   
     std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
     std::cout << CYAN "Thx " << buro.getName() 
             <<". See you at the coffee machine !\n" RESET;
@@ -130,11 +127,11 @@ void AForm::execute(Bureaucrat const & buro) {
     if (_is_signed == 0)
         throw AForm::FormUnsigned();
         
-    if (buro.getRank() <= _grade_to_ex)
-        throw AForm::GradeTooLow();
+    buro.getRank() <= _grade_to_ex ?
+        std::cout << GREEN "Executor stamps the form. and give it back.\n"    
+        : throw AForm::GradeTooLow();
          
-    std::cout << GREEN "Executor stamps the form. and give it back.\n";    
-    std::cout << CYAN "Perfect ! Let's give to " << this -> _target << " this " << this -> _name << ".\n" RESET ;
+    std::cout << PURPLE "\nEXECUTION of the " << this -> _name << " for " << this -> _target << ".\n" RESET ;
 
     this -> action();
 }
