@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/26 18:16:09 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 12:43:10 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@
     
 #define SCForm ShruberryCreationForm
 
+
+
+
 class Bureaucrat;
 
 class ShruberryCreationForm : public AForm {
     private :
-        //
+        std::string _createFileName() const;
+        std::string _createForest() const;
     public :
     ShruberryCreationForm(std::string target);
     ShruberryCreationForm(const SCForm & toCopy);
@@ -32,7 +36,15 @@ class ShruberryCreationForm : public AForm {
 
     ShruberryCreationForm & operator=(const SCForm & toCopy);
 
+    class NameTooLong : public std::exception {
+        public: virtual const char * what() const throw(); };
+        
+    class NameInvalidChar : public std::exception {
+        public: virtual const char * what() const throw(); };
+            
     virtual void action();
 };
     
+
+
 #endif
