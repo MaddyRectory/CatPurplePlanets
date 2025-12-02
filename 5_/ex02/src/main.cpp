@@ -120,7 +120,7 @@ int main(void){
         RobotomyRequestForm rrf("SubjectA ");
         rrf.beSigned(b);
         rrf.execute(b);
-        ShruberryCreationForm scf("Garden.txt");
+        ShruberryCreationForm scf("2en");
         scf.beSigned(b);
         scf.execute(b);
 

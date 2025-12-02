@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 12:46:55 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:20:26 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "../include/colors.hpp"
 #include <iostream>
 #include <fstream>
+#include <string>
+
 
 ShruberryCreationForm::ShruberryCreationForm(std::string target) 
     : AForm("ShruberryCreationForm", target, 145, 137) {}
@@ -40,12 +42,11 @@ const char * ShruberryCreationForm::NameInvalidChar::what() const throw() {
 }
 
 std::string ShruberryCreationForm::_createFileName() const {
-    if (getTarget().size() > 100);
+    if (getTarget().size() > 100)
         throw ShruberryCreationForm::NameTooLong();
-    std::string goodCharFilename = 
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
-    if (getTarget().find_first_not_of(goodCharFilename) || getTarget().size() > 100);
-        throw ShruberryCreationForm::NameInvalidChar();
+    std::string goodCharFilename = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
+    // if (getTarget().find_first_not_of(goodCharFilename))
+    //     throw ShruberryCreationForm::NameInvalidChar();
     std::string fileName = getTarget() + "_shrubbery";
     return fileName;
 };
@@ -53,21 +54,21 @@ std::string ShruberryCreationForm::_createFileName() const {
 std::string ShruberryCreationForm::_createForest() const {
     std::string forest;
 
-    forest += "\n    ()            ()            ()    \n";
-    forest += "    /\            /\            /\    \n";
-    forest += "   / *\          / *\          / *\   \n";
-    forest += "  / *  \        / *  \        / *  \  \n";
-    forest += " / *  * \      / *  * \      / *  * \ \n";
-    forest += " ^^^[]^^^      ^^^[]^^^      ^^^[]^^^ \n";
+    forest += "\n    ()           ()           ()    \n";
+    forest += "    /\\           /\\           /\\   \n";
+    forest += "   / *\\         / *\\         / *\\  \n";
+    forest += "  / *  \\       / *  \\       / *  \\ \n";
+    forest += " / *  * \\     / *  * \\     / *  * \\ \n";
+    forest += " ^^^[]^^^     ^^^[]^^^     ^^^[]^^^ \n";
     forest += "---------------------------------------\n";
-    forest += "     *             *             *     \n";
-    forest += "    /.\           /.\           /.\    \n";
-    forest += "   /o..\         /o..\         /o..\   \n";
-    forest += "   /..o\         /..o\         /..o\   \n";
-    forest += "  /.o..o\       /.o..o\       /.o..o\  \n";
-    forest += "  /...o.\       /...o.\       /...o.\  \n";
-    forest += " /..o....\     /..o....\     /..o....\ \n";
-    forest += " ^^^[_]^^^     ^^^[_]^^^     ^^^[_]^^^ \n";
+    forest += "     *            *            *     \n";
+    forest += "    /.\\          /.\\          /.\\   \n";
+    forest += "   /o..\\        /o..\\        /o..\\  \n";
+    forest += "   /..o\\        /..o\\        /..o\\  \n";
+    forest += "  /.o..o\\      /.o..o\\      /.o..o\\ \n";
+    forest += "  /...o.\\      /...o.\\      /...o.\\ \n";
+    forest += " /..o....\\    /..o....\\    /..o....\\ \n";
+    forest += " ^^^[_]^^^    ^^^[_]^^^    ^^^[_]^^^ \n";
     forest += "---------------------------------------- \n";
 
     return forest;    
@@ -76,14 +77,20 @@ std::string ShruberryCreationForm::_createForest() const {
 void ShruberryCreationForm::action() {
     std::cout << "OMG a Shruberry !\n";
     std::string fileName = _createFileName();
+        std::cout << fileName << " <= filename\n";
     std::string forest = _createForest();
-    std::ofstream shrub(fileName, std::ios::out | std::ios::app);
+    std::fstream ofs(fileName.c_str(), std::ios::out);
+    // if (!ofs)
+    //     std::cout << "Houston Shrubbery problem\n";
+    ofs << forest;
+}
+
+    // std::ofstream shrub(fileName, std::ios::out | std::ios::app);
     
     
     // if !shrub)
     //     throw //impossible d'ouvrir le fichier
     
-}
 
 // check nom de target valide pour fichier 
 //creer string nom du fichier (append) avec target
@@ -99,23 +106,3 @@ void ShruberryCreationForm::action() {
 // raser contenu du fichier et planter foret a la place
 // close file
 
-
-
-
-"                                      
-    ()            ()            ()    
-    /\            /\            /\    
-   / *\          / *\          / *\   
-  / *  \        / *  \        / *  \  
- / *  * \      / *  * \      / *  * \ 
- ^^^[]^^^      ^^^[]^^^      ^^^[]^^^ 
----------------------------------------
-     *             *             *     
-    /.\           /.\           /.\    
-   /o..\         /o..\         /o..\   
-   /..o\         /..o\         /..o\   
-  /.o..o\       /.o..o\       /.o..o\  
-  /...o.\       /...o.\       /...o.\  
- /..o....\     /..o....\     /..o....\ 
- ^^^[_]^^^     ^^^[_]^^^     ^^^[_]^^^ 
----------------------------------------- "
