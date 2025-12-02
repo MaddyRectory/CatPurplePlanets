@@ -109,21 +109,23 @@ int main(void){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << "\n ------ New Forms : sign then exec ----------------------" << std::endl;
+    std:: cout << "\n ------ New Forms : sign & exec ----------------------" << std::endl;
     try
         {
         Bureaucrat b("BigBoss", 1);
-        
+
+        std:: cout << "\n   ---- Presidential Pardon ----------------\n ";
         PresidentialPardonForm ppf("InnocentMan");
         ppf.beSigned(b);
-        ppf.execute(b);
+        ppf.isExecuted(b);
+        std:: cout << "\n   ---- Robotomy Request ------------------\n ";
         RobotomyRequestForm rrf("SubjectA ");
         rrf.beSigned(b);
-        rrf.execute(b);
-        ShruberryCreationForm scf("2en");
+        rrf.isExecuted(b);
+        std:: cout << "\n   ---- Shruberry Creation ------------------\n ";
+        ShruberryCreationForm scf("Garden");
         scf.beSigned(b);
-        scf.execute(b);
-
+        scf.isExecuted(b);
 
         }
     catch (const std::exception & e){

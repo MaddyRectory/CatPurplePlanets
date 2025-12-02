@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:35:25 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ Bureaucrat::Bureaucrat(std::string const & name, int rank)
         
     this->_rank = rank;
         
-    std::cout   << BLUE 
-                << "Welcome "<< getName() 
-                << " ! Your grade is "<< getRank() 
+    std::cout   << BLUE "Welcome " RESET << getName() 
+                << BLUE " ! Your grade is "<< getRank() 
                 << RESET "\n";
 }
 
@@ -104,6 +103,17 @@ void Bureaucrat::signForm(AForm & f) {
     {
         f.checkSignedStatus();
         f.beSigned(*this);
+    }
+    catch (const std::exception & e) {
+        std::cout << _name << " couldn’t sign this " << f.getName() << " because " << e.what() ;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & f) {
+    try 
+    {
+        f.checkSignedStatus();
+        f.isExecuted(*this);
     }
     catch (const std::exception & e) {
         std::cout << _name << " couldn’t sign this " << f.getName() << " because " << e.what() ;

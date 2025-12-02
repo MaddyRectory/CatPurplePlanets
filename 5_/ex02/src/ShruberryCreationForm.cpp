@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 14:20:26 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:47:10 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ShruberryCreationForm::ShruberryCreationForm(const SCForm & toCopy)
     : AForm(toCopy) {}
 
 ShruberryCreationForm::~ShruberryCreationForm() {
-    std::cout   << CYAN << "Shruberry Form safely shredded !\n" RESET ;
+    std::cout   << "Shruberry Form " << BLUE " safely shredded !\n" RESET ;
 }
 
 ShruberryCreationForm & ShruberryCreationForm::operator=(const SCForm & toCopy) {
@@ -45,8 +45,8 @@ std::string ShruberryCreationForm::_createFileName() const {
     if (getTarget().size() > 100)
         throw ShruberryCreationForm::NameTooLong();
     std::string goodCharFilename = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
-    // if (getTarget().find_first_not_of(goodCharFilename))
-    //     throw ShruberryCreationForm::NameInvalidChar();
+    if (getTarget().find_first_not_of(goodCharFilename) != std::string::npos)
+        throw ShruberryCreationForm::NameInvalidChar();
     std::string fileName = getTarget() + "_shrubbery";
     return fileName;
 };
@@ -74,14 +74,14 @@ std::string ShruberryCreationForm::_createForest() const {
     return forest;    
 };
 
-void ShruberryCreationForm::action() {
-    std::cout << "OMG a Shruberry !\n";
+void ShruberryCreationForm::action() const {
+    std::cout << YELLOW " Operation shruberry ! NOW!\n" RESET;
     std::string fileName = _createFileName();
-        std::cout << fileName << " <= filename\n";
+    std::cout << GREEN " Magic forest successfully created. \n"
+        << RESET " Please cat [ " << fileName 
+        << " ] to get your trees ! Merry Xmas :)\n\n";
     std::string forest = _createForest();
     std::fstream ofs(fileName.c_str(), std::ios::out);
-    // if (!ofs)
-    //     std::cout << "Houston Shrubbery problem\n";
     ofs << forest;
 }
 

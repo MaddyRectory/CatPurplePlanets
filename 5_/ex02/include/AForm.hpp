@@ -46,10 +46,10 @@ public:
     int const &         getGradeToEx() const;
     bool const &        getSignState() const;
 
-    void checkSignedStatus();
+    void checkSignedStatus() const;
     void beSigned(Bureaucrat const & buro);
-    void execute(Bureaucrat const & buro);
-    virtual void action() = 0;
+    void isExecuted(Bureaucrat const & buro) const;
+    virtual void action() const = 0;
     
     // ----EXEPTIONS ---------
     //

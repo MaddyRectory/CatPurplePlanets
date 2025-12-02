@@ -18,8 +18,8 @@ AForm::AForm(std::string const & name, std::string const & target,
                 int const sign_rk, int const ex_rk) 
             : _name(name), _target(target), _grade_to_sign(sign_rk), 
                 _grade_to_ex(ex_rk) {    
-    std::cout << CYAN 
-            << "[Form construction request].\n Name = " << _name
+    std::cout << BLUE "[Form construction request].\n" RESET 
+            << CYAN " Name = " << _name
             << ". Target = " << _target  
             << ". grade_to_sign = " << _grade_to_sign 
             << ". grade_to_ex = " << _grade_to_ex 
@@ -31,7 +31,7 @@ AForm::AForm(std::string const & name, std::string const & target,
         throw Bureaucrat::GradeTooHigh();
     
     _is_signed = 0;
-    std::cout << GREEN "Unsigned " << getName() << "'s creation confirmed.\n\n" << RESET << std::endl;
+    std::cout << GREEN "Unsigned " << getName() << "'s creation confirmed.\n" << RESET << std::endl;
 }
 
 AForm::AForm(const AForm &toCopy)  : 
@@ -50,7 +50,7 @@ AForm & AForm::operator=(const AForm &toCopy) {
 }
 
 AForm::~AForm() {
-        std::cout   << CYAN << "[Default Form Destructor]\n" RESET ;
+        std::cout   << BLUE << "[Default AForm Destructor]\n" RESET ;
 } 
 
 // ---------------------------------------------------
@@ -101,7 +101,7 @@ const char * AForm::FormUnsigned::what() const throw() {
 // FT MEMBERS
 // ---------------------------------------------------
 
-void AForm::checkSignedStatus() {
+void AForm::checkSignedStatus() const {
     if(_is_signed)
         throw AForm::FormAlreadySigned();
 }
@@ -121,7 +121,7 @@ void AForm::beSigned(Bureaucrat const & buro) {
     
 }
 
-void AForm::execute(Bureaucrat const & buro) {
+void AForm::isExecuted(Bureaucrat const & buro) const {
     std::cout << CYAN "Hi " << buro.getName() << "! Could you execute this " << this -> _name << " ?\n" RESET;
     
     if (_is_signed == 0)

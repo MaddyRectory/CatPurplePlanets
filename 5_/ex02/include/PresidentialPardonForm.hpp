@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:27 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/26 18:07:30 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:39:34 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class PresidentialPardonForm : public AForm {
         
         PresidentialPardonForm & operator=(const PPForm &toCopy);
 
-        virtual void action();
+        virtual void action() const;
 
 };
 #endif

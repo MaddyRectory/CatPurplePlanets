@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 12:43:10 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/02 16:39:55 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class ShruberryCreationForm : public AForm {
     class NameInvalidChar : public std::exception {
         public: virtual const char * what() const throw(); };
             
-    virtual void action();
+    virtual void action() const;
 };
     
 
