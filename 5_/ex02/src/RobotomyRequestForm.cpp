@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:22 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:40:02 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:17:36 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void RobotomyRequestForm::action() const {
     
     std::cout << CYAN "*Brrrr Krrrr Kssssss Drrrrrill*\n" << RESET;
     
-    srand((unsigned int)time(0));
-    int brainXplosion = rand()%2;
+    std::srand((unsigned int)std::time(0));
+    int brainXplosion = std::rand()%2;
     if(brainXplosion) { 
         std::cout << RED "*KABOOM !*\n "
             << "Oups, I think the robotomy failed." RESET

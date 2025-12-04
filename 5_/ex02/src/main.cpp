@@ -43,6 +43,7 @@ Interface = classe avec que des methodes pure
 #include "../include/PresidentialPardonForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/ShruberryCreationForm.hpp"
+#include <unistd.h>
 
 int main(void){
 
@@ -119,14 +120,37 @@ int main(void){
         ppf.beSigned(b);
         ppf.isExecuted(b);
         std:: cout << "\n   ---- Robotomy Request ------------------\n ";
-        RobotomyRequestForm rrf("SubjectA ");
-        rrf.beSigned(b);
-        rrf.isExecuted(b);
+        RobotomyRequestForm rrfb("Subject X");
+        rrfb.beSigned(b);
+        rrfb.isExecuted(b);
         std:: cout << "\n   ---- Shruberry Creation ------------------\n ";
         ShruberryCreationForm scf("Garden");
         scf.beSigned(b);
         scf.isExecuted(b);
 
+        }
+    catch (const std::exception & e){
+        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+    }
+
+    std:: cout << "\n ------ Now it's your turn ----------------------" << std::endl;
+    try
+        {
+        //hire different graded bureaucrat
+        Bureaucrat a("BigBoss", 1);
+        Bureaucrat b("MidBoss", 19);
+        Bureaucrat c("MiniBoss", 142);
+
+        //choose your form
+        PresidentialPardonForm ppf("InnocentMan");
+        // RobotomyRequestForm rrf("Subject X");
+        // ShruberryCreationForm scf("Garden");
+
+        //do your tests
+        ppf.beSigned(a); 
+        ppf.isExecuted(a);
+        // ppf.beSigned(a);   
+        // ppf.isExecuted(a);
         }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
