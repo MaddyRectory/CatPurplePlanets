@@ -63,13 +63,28 @@ int main(void){
     {
         Intern int_A;
     }
-    std:: cout << "\n ------ Intern : main in subject [fake function] ----------------------" << std::endl;
+    std:: cout << "\n ------ Intern : main in subject ----------------------" << std::endl;
+    
+        Intern someRandomIntern;
+        AForm* rrf;
+
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        delete rrf;
+    
+    std:: cout << "\n ------ Intern : Bad Form Name  ----------------------" << std::endl;
+    
+        Intern stud;
+        AForm* form;
+
+        form = stud.makeForm("save the world", "Bender");
+
+    std:: cout << "\n ------ Intern creates form, bureaucrat sign it ----------------------" << std::endl;
     
         Intern someRandomIntern;
         Bureaucrat B("boss", 1);
         AForm* rrf;
 
-        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+        rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 
         if (rrf) {
             B.signForm(*rrf);
@@ -77,6 +92,8 @@ int main(void){
             delete rrf;
         }
 
+    return 0;
+}
 
     // try {}
 
@@ -136,6 +153,3 @@ int main(void){
     // rrfb.beSigned(b);
     // rrfb.execute(b);
     //         rrfb.execute(b); 
-
-    return 0;
-}
