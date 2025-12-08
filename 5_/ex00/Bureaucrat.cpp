@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/10/29 17:28:19 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:04:18 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ Bureaucrat::Bureaucrat() {
 
 Bureaucrat::Bureaucrat(std::string const & name, int rank) : _name(name) {
     if (rank > 150)
-    throw GradeTooLowException();
+        throw GradeTooLowException();
     else if (rank < 1)
-    throw GradeTooHighException();
+        throw GradeTooHighException();
     else
-    this->_rank = rank;
+        this->_rank = rank;
     std::cout << BLUE << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
 }
 

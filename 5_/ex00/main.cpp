@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/10/29 17:32:26 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:55:22 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int main(void){
 
-    std:: cout << "\n ------ Test 1 : ------ \n" << std::endl;
+    std:: cout << "\n ------ Test 1 - default constructor + destructor ------ \n" << std::endl;
     try
     {
-    Bureaucrat A;
+    Bureaucrat A("Albert", 42);;
     std::cout << CYAN "A : "<< A << RESET;
     }
     catch (const std::exception & e){
@@ -27,11 +27,11 @@ int main(void){
     }
 
 
-    std:: cout << "\n ------ Test 2 : copy ------ \n" << std::endl;
+    std:: cout << "\n ------ Test 2 : create, copy, demote ------ \n" << std::endl;
     try
     {
-    std:: cout << PURPLE "new bureaucrat : Tom, grade 149 \n "<< RESET;
-    Bureaucrat B("Tom", 148);
+    std:: cout << PURPLE "new bureaucrat : Bob, grade 149 \n "<< RESET;
+    Bureaucrat B("Bob", 149);
     std:: cout << PURPLE "copy tom" << RESET "\n";
     Bureaucrat C(B);
     
@@ -41,14 +41,14 @@ int main(void){
     
     C.demote();
     std::cout << CYAN "C : "<< C << RESET;
-    std::cout << CYAN "B : "<< B << RESET;
-        
+    std::cout << CYAN "B : "<< B << RESET;  
     }
-    catch (const std::exception & e){
+    catch (const std::exception & e)
+    {
         std::cout << e.what(); 
     }
 
-    std:: cout << "\n------ Test 3 : initial grade to low ------\n" << std::endl;
+    std:: cout << "\n------ Test 3 : initial grade too low ------\n" << std::endl;
     try
     {
     Bureaucrat E("TomLow", 151);
@@ -58,7 +58,7 @@ int main(void){
         std::cout << e.what(); 
     }
     
-    std:: cout << "\n------ Test 4 : initial grade to high ------\n" << std::endl;
+    std:: cout << "\n------ Test 4 : initial grade too high ------\n" << std::endl;
     try
     {
     Bureaucrat F("TomHigh", 0);
@@ -94,7 +94,7 @@ int main(void){
         std::cout << e.what(); 
     }
     
-    std:: cout << "\n------ Test 5 : Lazy workers are demoted ------\n" << std::endl;
+    std:: cout << "\n------ Test 6 : Lazy workers are demoted ------\n" << std::endl;
     try
     {
     Bureaucrat A("Stupid", 149);

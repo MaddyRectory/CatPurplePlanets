@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/11 15:46:25 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:43:33 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << "\n\n\n ------------- Test 2 : sign grade to low  ----------------\n\n\n";
+    std:: cout << "\n\n\n ------------- Test 2 : sign grade too low  ----------------\n\n\n";
     try
     {
     Form F("sign_to_low", 250, 10);
@@ -36,7 +36,7 @@ int main(void){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
     
-    std:: cout << "\n\n\n ------------- Test 3 : sign grade to high  ----------------\n\n\n";
+    std:: cout << "\n\n\n ------------- Test 3 : sign grade too high  ----------------\n\n\n";
     try
     {
     Form F("sign_to_high", 0, 10);
@@ -46,7 +46,7 @@ int main(void){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << "\n\n\n ------------- Test 4 : exec grade to low  ----------------\n\n\n";
+    std:: cout << "\n\n\n ------------- Test 4 : exec grade too low  ----------------\n\n\n";
     try
     {
     Form F("sign_to_low", 25, 1000);
@@ -56,7 +56,7 @@ int main(void){
         std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << "\n\n\n ------------- Test 5 : exec grade to high  ----------------\n\n\n";
+    std:: cout << "\n\n\n ------------- Test 5 : exec grade too high  ----------------\n\n\n";
     try
     {
     Form F("sign_to_high", 25, 0);
@@ -89,7 +89,7 @@ int main(void){
         
     }
 
-    std:: cout << "\n\n\n ------------- Test 7 : sign with rank to low ? and higher ?  ----------------\n\n\n";
+    std:: cout << "\n\n\n ------------- Test 7 : sign with rank too low ? and higher ?  ----------------\n\n\n";
     try
     {
     std:: cout << "[Voluntary bureaucrat please ?]\n";
@@ -146,11 +146,11 @@ int main(void){
     Form form_01("C100.1", 100, 42);
     Form form_02("C100.2", 100, 42);
 
-    std:: cout << "[Tac still 100]\n";
+    std:: cout << "[Tac bis still 100]\n";
     tac.signForm(form_02);
     std::cout << form_02 << "\n";
     
-    std:: cout << RESET "[demote Tic to 101]\n";
+    std:: cout << RESET "[demote Tic bis to 101]\n";
     tic.demote();
     tic.signForm(form_01);
     std::cout << form_01 << "\n";

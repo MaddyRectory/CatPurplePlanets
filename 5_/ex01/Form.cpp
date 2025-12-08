@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/19 16:30:31 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:58:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Form::Form(std::string const & name, int const sign_rk, int const ex_rk)
         : _name(name), _grade_to_sign(sign_rk), _grade_to_ex(ex_rk) {
     
     std::cout << BLUE 
-              << "[Form construction request].\n Name = " << _name 
+              << "[Form construction request].\n" CYAN
+              << " Name = " << _name 
               << ". grade_to_sign = " << _grade_to_sign 
               << ". grade_to_ex = " << _grade_to_ex 
               << ". Unsigned.\n" 
@@ -72,7 +73,7 @@ void Form::checkSignedStatus() {
 }
 
 const char * Form::GradeTooLow::what() const throw() {
-    return "his grade is to law !\n" ;
+    return "his grade is too low !\n" ;
 }
 
 const char * Form::FormAlreadySigned::what() const throw() {

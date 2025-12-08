@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/11 15:37:50 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:49:54 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,15 @@ Bureaucrat::Bureaucrat() {
 
 Bureaucrat::Bureaucrat(std::string const & name, int rank) : _name(name) {
     if (rank > 150)
-    throw GradeTooLow();
+        throw GradeTooLow();
     else if (rank < 1)
-    throw GradeTooHigh();
+        throw GradeTooHigh();
     else
-    this->_rank = rank;
+        this->_rank = rank;
     std::cout << BLUE << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & toCopy)  : _name(toCopy.getName())
-{
+Bureaucrat::Bureaucrat(Bureaucrat const & toCopy)  : _name(toCopy.getName()) {
     std::cout << BLUE << "Call Copy constructor." << RESET "\n";
     *this = toCopy;
 }
@@ -38,14 +37,12 @@ Bureaucrat::Bureaucrat(Bureaucrat const & toCopy)  : _name(toCopy.getName())
 Bureaucrat const & Bureaucrat::operator=(Bureaucrat const & toCopy)
 {
     if(this != &toCopy)
-    {
         _rank = toCopy._rank;
-    }
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
-std::cout <<  getName() <<  BLUE " ! You're fired ! (Bureaucrat destructor)" << RESET << std::endl;
+    std::cout <<  getName() <<  BLUE " ! You're fired ! (Bureaucrat destructor)" << RESET << std::endl;
 }
 
 std::string const  & Bureaucrat::getName() const {
@@ -63,8 +60,8 @@ int Bureaucrat::setRank(int const newRank) {
 void Bureaucrat::promote(){
     int newRank = getRank() - 1;
     if (newRank < 1) {
-        std::cout << YELLOW "Oups, sorry BigBoss, Cannot promote you. Don't fire me please \n" RESET << std::endl;
-        throw GradeTooHigh();
+        std::cout << YELLOW "It seems I can't promote you anymore. you're the Boss !\n" RESET << std::endl;
+            throw GradeTooHigh();
     }
     else{
         setRank(newRank);
@@ -76,7 +73,7 @@ void Bureaucrat::demote() {
     int newRank = getRank() + 1;
     if (newRank > 150) {
         std::cout << YELLOW "Oh it's you. Looks like you're already at lowest grade. Maybe should I fire you ?\n" RESET ;
-        throw GradeTooLow();
+            throw GradeTooLow();
     }
     else{
         setRank(newRank);
@@ -85,11 +82,11 @@ void Bureaucrat::demote() {
 }
 
 const char * Bureaucrat::GradeTooLow::what() const throw() {
-    return "Bureaucrat's grade is to law ! (must be <= 150).\n" ;
+    return "Bureaucrat's grade is too low ! (must be <= 150).\n" ;
 }
 
 const char * Bureaucrat::GradeTooHigh::what() const throw() {
-        return "Bureaucrat's grade is to high (must be >= 1).\n" ;
+        return "Bureaucrat's grade is too high (must be >= 1).\n" ;
 }
     
 
