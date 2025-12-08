@@ -82,11 +82,11 @@ bool const & AForm::getSignState() const{
 // ---------------------------------------------------
 
 const char * AForm::GradeTooHigh::what() const throw() {
-    return "his grade is to high !\n" ; 
+    return "his grade is too high !\n" ; 
 }
 
 const char * AForm::GradeTooLow::what() const throw() {
-    return "his grade is to law !\n" ;
+    return "his grade is too low !\n" ;
 }
 
 const char * AForm::FormAlreadySigned::what() const throw() {
@@ -94,7 +94,7 @@ const char * AForm::FormAlreadySigned::what() const throw() {
 }
 
 const char * AForm::FormUnsigned::what() const throw() {
-        return "this Aform is already signed.\n" ;
+        return "this Aform is not signed.\n" ;
 }
 
 // ---------------------------------------------------
@@ -108,17 +108,16 @@ void AForm::checkSignedStatus() const {
 
 void AForm::beSigned(Bureaucrat const & buro) {
     std::cout << CYAN "Hi " << buro.getName() 
-            << "! Could you approve this " << this -> _name 
-            << " ?\n" RESET;
+            << "! Could you approve this " << this -> _name << " ?\n" RESET;
+
     if (_is_signed == 1)
         throw AForm::FormAlreadySigned();
+        
     buro.getRank() <= _grade_to_sign ?
          _is_signed = 1 
          : throw AForm::GradeTooLow();   
-    std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
-    std::cout << CYAN "Thx " << buro.getName() 
-            <<". See you at the coffee machine !\n" RESET;
-    
+
+    std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n" RESET;
 }
 
 void AForm::isExecuted(Bureaucrat const & buro) const {
@@ -131,7 +130,7 @@ void AForm::isExecuted(Bureaucrat const & buro) const {
         std::cout << GREEN "Executor stamps the form. and give it back.\n"    
         : throw AForm::GradeTooLow();
          
-    std::cout << PURPLE "\nEXECUTION of the " << this -> _name << " for " << this -> _target << ".\n" RESET ;
+    std::cout << PURPLE "\nEXECUTION of the " << this -> _name << " for " << _target << ".\n" RESET ;
 
     this -> action();
 }

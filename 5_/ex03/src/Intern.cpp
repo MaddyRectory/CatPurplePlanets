@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:15:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/08 11:47:13 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:35:17 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,86 @@ Intern::Intern() {
     std::cout << BLUE "Welcome intern (constructor)\n" RESET ;
 }
 
-// Intern::Intern(const Intern & toCopy) {
-    
-// }
+Intern::Intern(const Intern & toCopy) {
+    *this = toCopy;     
+}
 
 Intern::~Intern() {
     std::cout << BLUE "Bye bye intern (destructor)\n" RESET ;
 }
 
-// Intern & Intern::operator=(const Intern & toCopy) {
+Intern & Intern::operator=(const Intern & toCopy) {
+    if (this != &toCopy)
+        *this = toCopy;
+    return *this;   
+}
+
+// const char * Intern::UnknownForm::what() const throw() {
     
 // }
+
+// Factory Function : 
+//WARNING : comme usage de new, il faudra faire gaffe a delete !
+
+// static AForm * makePPF(std::string const target){
+//     return (new PresidentialPardonForm(target));
+// }
+// static AForm * makeSCF(std::string const target){
+//     return (new ShruberryCreationForm(target));
+// }
+// static AForm * makeRRF(std::string const target){
+//     return (new RobotomyRequestForm(target));
+// }
+
+// pointeur de fonction
+    // AForm* (*ptrMakeForm)(std::string const); //ptr sur fonction
+
+
+// fonction make form
+
+AForm * Intern::makeForm(std::string const form_name, std::string const target) {
+    
+    std::string listForm[3] = {
+        "shrubbery creation", 
+        "robotomy request", 
+        "presidential pardon" };
+    AForm * newForm = NULL;
+    
+    std::cout << BLUE "Intern try to print a [" CYAN
+            << form_name << BLUE "] for [" CYAN
+            << target << BLUE "]\n\n" RESET;
+    
+    for (int i = 0; i <= 2; i++) {
+        if (form_name == listForm[i]) {
+            switch (i) {
+                case 0 :
+                    newForm = new ShruberryCreationForm(target);
+                    break;
+                case 1 :
+                    newForm = new RobotomyRequestForm(target);
+                    break;
+                case 2 :
+                    newForm = new PresidentialPardonForm(target);
+                    break;                
+                default :
+                    std::cout << "Unknokn form\n";
+                }
+            std::cout << GREEN "SUCCESS : Intern creates a " RESET << form_name << " form ! \n\n";
+            return (newForm);
+            }
+        }
+        if (newForm == NULL) {
+            std::cout << RED "No result for [" << form_name << "] in DB.\n" RESET
+                    << "Available forms are : "
+                    << "shrubbery creation, robotomy request, presidential pardon."
+                    << std::endl;
+    }
+    return (newForm);
+}
+
+
+
+    // "Unable to find [] form in the BDD. Can't make it.
+    // Forms available : RobotomyRequest, PresidentialPardon, ShruberryCreation"
+
+    // An intern creates a <name> form for <target>

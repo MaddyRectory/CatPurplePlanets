@@ -60,12 +60,23 @@ int main(void){
     }
 
     std:: cout << "\n ------ Intern : construct & destroy ----------------------" << std::endl;
-    
+    {
         Intern int_A;
-
-    // std:: cout << "\n ------ Intern : new test ----------------------" << std::endl;
+    }
+    std:: cout << "\n ------ Intern : main in subject [fake function] ----------------------" << std::endl;
     
-    //     Intern int_A;
+        Intern someRandomIntern;
+        Bureaucrat B("boss", 1);
+        AForm* rrf;
+
+        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+
+        if (rrf) {
+            B.signForm(*rrf);
+            B.executeForm(*rrf);
+            delete rrf;
+        }
+
 
     // try {}
 

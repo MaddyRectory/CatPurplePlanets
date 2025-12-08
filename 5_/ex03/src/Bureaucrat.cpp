@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:35:25 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:42:32 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,17 @@ void Bureaucrat::demote() {
 }
 
 const char * Bureaucrat::GradeTooLow::what() const throw() {
-    return "Bureaucrat's grade is to law ! (must be <= 150).\n" ;
+    return "Bureaucrat's grade is too low ! (must be <= 150).\n" ;
 }
 
 const char * Bureaucrat::GradeTooHigh::what() const throw() {
-        return "Bureaucrat's grade is to high (must be >= 1).\n" ;
+        return "Bureaucrat's grade is too high (must be >= 1).\n" ;
 }
     
 
 void Bureaucrat::signForm(AForm & f) {
     try 
     {
-        f.checkSignedStatus();
         f.beSigned(*this);
     }
     catch (const std::exception & e) {
@@ -112,7 +111,6 @@ void Bureaucrat::signForm(AForm & f) {
 void Bureaucrat::executeForm(AForm const & f) {
     try 
     {
-        f.checkSignedStatus();
         f.isExecuted(*this);
     }
     catch (const std::exception & e) {
