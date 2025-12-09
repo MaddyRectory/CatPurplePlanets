@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/08 15:55:22 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/09 11:12:10 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,3 +121,12 @@ int main(void){
     }
     return 0;
 }
+
+//test constructeur default
+//test constructeur name invalid
+//test constructeur valeurs hors scope
+
+//cobaye ok
+//set get rank
+
+//promote demote 
