@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:18 by mairivie          #+#    #+#             */
-/*   Updated: 2025/11/19 16:30:43 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/09 17:05:06 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ class Bureaucrat;
 class Form
 {
 private:
-    std::string const & _name;
+    std::string const _name;
     int const _grade_to_sign;
     int const _grade_to_ex;
     bool _is_signed;
 
 public:
+    Form();
     Form(std::string const & name, int const grade_to_sign, int const grade_to_ex);
     Form(const Form &toCopy);
     Form & operator=(const Form &toCopy);
@@ -45,7 +46,7 @@ public:
     int const &         getGradeToEx() const;
     bool const &        getSignState() const;
 
-    void checkSignedStatus();
+    void checkSignedStatus() const;
     
     void beSigned(Bureaucrat const & buro);
     
