@@ -6,13 +6,12 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 12:33:04 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:50:18 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-//init les var
 Bureaucrat::Bureaucrat() : _name("John Doe") {
     _rank = 150;
     std::cout << PURPLE << "Call default Bureaucrat constructor.\n" RESET ; 
@@ -58,7 +57,6 @@ int const & Bureaucrat::getRank() const {
    return this->_rank; 
 }
 
-//protege ce truc  bordel
 int Bureaucrat::setRank(int const newRank) {
     if (newRank > 150)
         throw GradeTooLowException();
