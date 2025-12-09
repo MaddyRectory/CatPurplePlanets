@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 15:01:13 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/09 18:15:31 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ int main(void){
 std:: cout << "\n ------ Test 1 - constructors/destructors ------ \n" << std::endl;
     try
     {
-    std::string coucou = NULL;
-     
     Bureaucrat def;
     Bureaucrat Ok(coucou, 42);
-    
 
     std::cout << CYAN << def << RESET;
     std::cout << CYAN << Ok << RESET;
