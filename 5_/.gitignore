@@ -38,6 +38,7 @@
 *.exe
 *.out
 *.app
+bureaucrat
 
 # debug information files
 *.dwo
