@@ -6,33 +6,30 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 11:38:14 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:33:04 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 //init les var
-Bureaucrat::Bureaucrat() {
-    Bureaucrat("John Doe", 150);
-    std::cout << BLUE << "Call default Bureaucrat constructor.\n";
-    std::cout << CYAN << "Default name : John Doe, default rank 150." << RESET << std::endl;
-
+Bureaucrat::Bureaucrat() : _name("John Doe") {
+    _rank = 150;
+    std::cout << PURPLE << "Call default Bureaucrat constructor.\n" RESET ; 
 }
 
 Bureaucrat::Bureaucrat(std::string const & name, int rank) : _name(name) {
+    std::cout << PURPLE "Trying to hire "<< getName() << " at rank "<< rank << RESET "\n";
     if (rank > 150) {
         _rank = 150;
-        std::cout << BLUE << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
         throw GradeTooLowException();
         }
     else if (rank < 1) {
         _rank = 1;
-        std::cout << BLUE << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
        throw GradeTooHighException();
        }
     this->_rank = rank;
-    std::cout << BLUE << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
+    std::cout << GREEN << "Welcome "<< getName() << " ! Your grade is "<< getRank() << RESET "\n";
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & toCopy)  : _name(toCopy.getName())
@@ -50,7 +47,7 @@ Bureaucrat const & Bureaucrat::operator=(Bureaucrat const & toCopy)
 }
 
 Bureaucrat::~Bureaucrat() {
-std::cout <<  getName() <<  BLUE " ! You're fired !" << RESET << std::endl;
+std::cout <<  getName() <<  PURPLE " ! You're fired ! [DESTRUCTOR]" << RESET << std::endl;
 }
 
 std::string const  & Bureaucrat::getName() const {
