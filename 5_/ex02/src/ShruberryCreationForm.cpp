@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:47:10 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:07:12 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <fstream>
 #include <string>
 
+ShruberryCreationForm::ShruberryCreationForm() 
+    : AForm("ShruberryCreationForm", "Default", 145, 137)  {}
 
 ShruberryCreationForm::ShruberryCreationForm(std::string target) 
     : AForm("ShruberryCreationForm", target, 145, 137) {}
