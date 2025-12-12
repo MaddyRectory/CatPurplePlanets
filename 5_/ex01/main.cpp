@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 18:07:50 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:16:22 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,94 +16,91 @@
 
 int main(void){
     
-    std:: cout << "\n ------ Test 1 : DEFAULT construct, annonce, destroy ------" << std::endl;
+std:: cout << "\n ------ Test 1 : DEFAULT construct, annonce, destroy ------" << std::endl;
     try {
         Form blank;
         std::cout << blank << RESET;
-        
-    } catch (const std::exception & e) {
+        } 
+    catch (const std::exception & e) {
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
     
-    std:: cout << "\n ------ Test 1bis : construct, annonce, destroy ------" << std::endl;
-    try
-    {
-    Form F("TIG", 142, 42);
-    std::cout << F << RESET;
+std:: cout << "\n ------ Test 1bis : construct, annonce, destroy ------" << std::endl;
+    try {
+        Form F("TIG", 142, 42);
+        std::cout << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
 
     std:: cout << "\n------------- Test 2 : sign grade too low  ----------------\n";
-    try
-    {
-    Form F("sign_to_low", 250, 10);
-    std::cout << PURPLE << F << RESET;
+    try {
+        Form F("sign_to_low", 250, 10);
+        std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
     
-    std:: cout << "------------- Test 3 : sign grade too high  ----------------\n";
-    try
-    {
-    Form F("sign_to_high", 0, 10);
-    std::cout << PURPLE << F << RESET;
+std:: cout << "------------- Test 3 : sign grade too high  ----------------\n";
+    try {
+        Form F("sign_to_high", 0, 10);
+        std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
 
     std:: cout << "------------- Test 4 : exec grade too low  ----------------\n";
-    try
-    {
-    Form F("sign_to_low", 25, 1000);
-    std::cout << PURPLE << F << RESET;
+    try {
+        Form F("sign_to_low", 25, 1000);
+        std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << "------------- Test 5 : exec grade too high  ----------------\n";
-    try
-    {
-    Form F("sign_to_high", 25, 0);
-    std::cout << PURPLE << F << RESET;
+std:: cout << "------------- Test 5 : exec grade too high  ----------------\n";
+    try {
+        Form F("sign_to_high", 25, 0);
+        std::cout << PURPLE << F << RESET;
     }
     catch (const std::exception & e){
         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
 
-    std:: cout << " ------------- Test 6 : Sign twice  ----------------\n";
+std:: cout << " ------------- Test 6 : Sign twice  ----------------\n";
 
-    try
-    {
-    Bureaucrat john("John", 142);
-    Form devil_deal("SoulSellingContract", 150, 10);
+    try {
+        Bureaucrat john("John", 142);
+        Form devil_deal("SoulSellingContract", 150, 10);
 
-    std:: cout << "[Sign this innocent piece of paper]\n";
-    std::cout << devil_deal << "\n";
-    devil_deal.beSigned(john);
-    std::cout << devil_deal << "\n";
-
-    std:: cout << "[Try to sign same form again]\n";
-    devil_deal.beSigned(john);
-    }
-    catch(const std::exception &e) {
-        // std:: cout << YELLOW "Error : " << e.what() << RESET " \n";
-    }
-
-    std:: cout << " \n------------- Test 7 : sign rank too low----------------\n";
-    try
-    {
-    Bureaucrat buro("Bobby", 125);
-    Form form_02("Big Contract", 52, 7);
-    buro.signForm(form_02);
-    std::cout << form_02 << "\n";
-    }
-    catch(const std::exception &e) {
+        std:: cout << "[Sign this innocent piece of paper]\n";
+        std::cout << devil_deal << "\n";
         
+        devil_deal.beSigned(john);
+        
+        std::cout << devil_deal << "\n";
+
+        std:: cout << "[Try to sign same form again]\n";
+        
+        devil_deal.beSigned(john);
+    }
+    catch(const std::exception &e) {
+        std:: cout << YELLOW "Error : " << e.what() << RESET " \n";
+    }
+
+std:: cout << " \n------------- Test 7 : sign rank too low----------------\n";
+    try {
+        Bureaucrat buro("Bobby", 125);
+        Form form_02("Big Contract", 52, 7);
+        
+        buro.signForm(form_02);
+        std::cout << form_02 << "\n";
+    }
+    catch(const std::exception &e) {
+                std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
     }
 }
 

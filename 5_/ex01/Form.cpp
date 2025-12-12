@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 12:16:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 17:09:48 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:17:08 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ std::string const & Form::getName() const {
     return _name;
 }
 
-int const & Form::getGradeToSign() const {
+int Form::getGradeToSign() const {
     return _grade_to_sign;
 }
 
-int const & Form::getGradeToEx() const {
+int Form::getGradeToEx() const {
     return _grade_to_ex;
 }
 
-bool const & Form::getSignState() const{
+bool Form::getSignState() const{
     return _is_signed;
 }
 
@@ -80,20 +80,8 @@ const char * Form::FormAlreadySigned::what() const throw() {
         return "this form is already signed.\n" ;
 }
 
-
-// void Bureaucrat::signForm(Form & f) {
-//     try 
-//     {
-//         f.checkSignedStatus();
-//         f.beSigned(*this);
-//     }
-//     catch (const std::exception & e) {
-//         std::cout << _name << " couldn’t sign this " << f.getName() << " because " << e.what() ;
-//     }
-
 void Form::beSigned(Bureaucrat const & buro) {
-    try 
-    {
+
     std::cout << CYAN "Hi " << buro.getName() << "! Could you approve this " << _name << " ?\n" RESET;
     if (_is_signed == true)
         throw Form::FormAlreadySigned();
@@ -104,12 +92,7 @@ void Form::beSigned(Bureaucrat const & buro) {
          
     std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n";    
     std::cout << CYAN "Thx " << buro.getName() 
-            <<". See you at the coffee machine !\n" RESET;
-    }
-    catch (const std::exception & e) {
-        std::cout << buro.getName() << " couldn’t sign this " << _name << " because " << e.what();
-    }
-    
+            <<". See you at the coffee machine !\n" RESET; 
 }
 
 std::ostream & operator<<(std::ostream & s, Form const & to_print ) {

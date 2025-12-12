@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 16:58:56 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 15:17:18 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,14 @@ void Bureaucrat::demote() {
 }
 
 void Bureaucrat::signForm(Form & f) {
-    try 
-    {
         f.checkSignedStatus();
         f.beSigned(*this);
-    }
-    catch (const std::exception & e) {
-        std::cout << _name << " couldn’t sign this " << f.getName() << " because " << e.what() ;
-    }
 }
 
 std::ostream & operator<<(std::ostream & s, Bureaucrat const & buro) {
-    s << buro.getName() << ", bureaucrat grade " << buro.getRank() << "." << std::endl;
+    s << buro.getName() 
+        << ", bureaucrat grade " 
+        << buro.getRank() << "." 
+        << std::endl;
     return s;
 }
