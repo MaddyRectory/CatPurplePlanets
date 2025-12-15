@@ -39,6 +39,7 @@
 *.out
 *.app
 bureaucrat
+*_shruberry
 
 # debug information files
 *.dwo

@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/02 17:02:05 by mairivie         ###   ########.fr        #
+#    Updated: 2025/12/15 10:06:05 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 clean:
 	@if [ -d obj ]; then rm -r obj; echo "rm -r obj" ; fi
-	@if [ -f *_shrubbery ]; then rm *_shrubbery ; echo "rm *_shrubbery" ; fi
+	@if [ -f *_shruberry ]; then rm *_shruberry ; echo "rm *_shruberry" ; fi
 
 fclean: clean
 	rm -f $(NAME)

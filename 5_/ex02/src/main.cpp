@@ -46,126 +46,87 @@ Interface = classe avec que des methodes pure
 #include <unistd.h>
 
 int main(void){
-
-    std:: cout << "\n------ Test Bur00 : Best workers get promotions -----------------\n" << std::endl;
-    try
-    {
-    Bureaucrat A("Good", 150);
-    Bureaucrat B("Great", 42);
-    Bureaucrat C("Best", 2);
-
-    A.promote();
-    std::cout << CYAN << A << RESET;
-    B.promote();
-    std::cout << CYAN << B << RESET;
-    C.promote();
-    std::cout << CYAN << C << RESET;
-
-    A.promote();
-    std::cout << CYAN << A << RESET ;
-    B.promote();
-    std::cout << CYAN << B << RESET ;
-    C.promote();
-    std::cout << CYAN << C << RESET ;
-    
-    }
-    catch (const std::exception & e){
-        std::cout << e.what() << std::endl; 
-    }
-    
-    std:: cout << "\n------ Test Bur01 : Lazy workers are demoted -----------------" << std::endl;
-    try
-    {
-    Bureaucrat A("Stupid", 149);
-    Bureaucrat B("Lazy", 42);
-    Bureaucrat C("Burned-Out", 1);
-
-    C.demote();
-    std::cout << CYAN << C << RESET;
-    B.demote();
-    std::cout << CYAN << B << RESET;
-    A.demote();
-    std::cout << CYAN << A << RESET;
-
-    C.demote();
-    std::cout << CYAN << C << RESET;
-    B.demote();
-    std::cout << CYAN << B << RESET;
-    A.demote();
-    std::cout << CYAN << A << RESET;
-    
-    }
-    catch (const std::exception & e){
-        std::cout << e.what() << std::endl; 
-    }
-
-    std:: cout << "\n ------ New Forms : construct & destroy ----------------------" << std::endl;
-    try
-        {
-        RobotomyRequestForm rrf("SubjectA ");
-        PresidentialPardonForm ppf("InnocentMan");
-        ShruberryCreationForm scf("Garden");
+    std:: cout << BG_BLUE "\n\n------ [1] New Forms : construct and destruct ----------------------\n" RESET << std::endl;
+        try {
+                //AForm impossible;
+                RobotomyRequestForm rrf;
+                PresidentialPardonForm ppf("InnocentMan");
+                ShruberryCreationForm scf("Ho Ho Ho");
         }
-    catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    }
-
-    std:: cout << "\n ------ New Forms : sign & exec ----------------------" << std::endl;
-    try
-        {
-        Bureaucrat b("BigBoss", 1);
-
-        std:: cout << "\n   ---- Presidential Pardon ----------------\n ";
-        PresidentialPardonForm ppf("InnocentMan");
-        ppf.beSigned(b);
-        ppf.isExecuted(b);
-        std:: cout << "\n   ---- Robotomy Request ------------------\n ";
-        RobotomyRequestForm rrfb("Subject X");
-        rrfb.beSigned(b);
-        rrfb.isExecuted(b);
-        std:: cout << "\n   ---- Shruberry Creation ------------------\n ";
-        ShruberryCreationForm scf("Garden");
-        scf.beSigned(b);
-        scf.isExecuted(b);
-
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
         }
-    catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    }
 
-    std:: cout << "\n ------ Now it's your turn ----------------------" << std::endl;
-    try
-        {
-        //hire different graded bureaucrat
-        Bureaucrat a("BigBoss", 1);
-        Bureaucrat b("MidBoss", 19);
-        Bureaucrat c("MiniBoss", 142);
+    std:: cout << BG_BLUE "\n\n------ [2] Sign & Exec : Presidential Pardon form ---------------\n" RESET << std::endl;
+        try {
+            Bureaucrat b("BigBoss", 1);
+            PresidentialPardonForm ppf("InnocentMan");
 
-        //choose your form
-        PresidentialPardonForm ppf("InnocentMan");
-        // RobotomyRequestForm rrf("Subject X");
-        // ShruberryCreationForm scf("Garden");
-
-        //do your tests
-        ppf.beSigned(a); 
-        ppf.isExecuted(a);
-        // ppf.beSigned(a);   
-        // ppf.isExecuted(a);
+            ppf.beSigned(b);
+            ppf.isExecuted(b);
         }
-    catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
 
+    std:: cout << BG_BLUE "\n\n------------- [3] Sign & Exec : Robotomy Request form ---------------\n" RESET << std::endl;
+        try {
+            Bureaucrat b("BigBoss", 1);
+            RobotomyRequestForm rrfb("Subject X");
 
+            rrfb.beSigned(b);
+            rrfb.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
 
-    // RobotomyRequestForm rrf("SubjectA ");
-    // RobotomyRequestForm rrfb("SubjectB ");
-    // rrf.beSigned(b);
-    // rrf.execute(b);
-    //         rrf.execute(b);
-    // rrfb.beSigned(b);
-    // rrfb.execute(b);
-    //         rrfb.execute(b); 
+    std:: cout << BG_BLUE "\n\n------------- [4] Sign & Exec : Schruberry Creation form ---------------\n" RESET << std::endl;
+        try {
+            ShruberryCreationForm scf("Garden");
+            Bureaucrat b("BigBoss", 1);
+            scf.beSigned(b);
+            scf.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
 
-    return 0;
+    std:: cout << BG_BLUE "\n\n ------ [3] Error : Exec_grade too low ----------------------\n" RESET << std::endl;
+        try {
+                PresidentialPardonForm ppf("InnocentMan");
+                Bureaucrat b("MidBoss", 12);
+
+                ppf.beSigned(b);
+                ppf.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
+
+    std:: cout << BG_BLUE "\n\n ------ [4] Error : Invalid Shrub File Name ----------------------\n" RESET << std::endl;
+        try {
+            ShruberryCreationForm scf("Garden Space");
+            Bureaucrat b("BigBoss", 1);
+
+            scf.beSigned(b);
+            scf.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
+
+    std:: cout << BG_BLUE "\n\n ------ [5] Success/Failure : Robotomy REQUEST ----------------------\n" RESET << std::endl;
+        try {
+            RobotomyRequestForm rrf("SubjectA ");
+            Bureaucrat b("MidBoss", 42);
+
+            rrf.beSigned(b);
+            rrf.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
+
+    return EXIT_SUCCESS;
 }

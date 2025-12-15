@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:13 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/12 16:08:25 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 09:17:16 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 # include "../include/AForm.hpp"
     
 #define SCForm ShruberryCreationForm
-
-
-
 
 class Bureaucrat;
 
@@ -45,7 +42,6 @@ class ShruberryCreationForm : public AForm {
             
     virtual void action() const;
 };
-    
 
 
 #endif
