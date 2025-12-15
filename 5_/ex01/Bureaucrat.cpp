@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/12 15:17:18 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:07:51 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() : _name("John Doe") {
     _rank = 150;
-    std::cout << PURPLE << "Call default Bureaucrat constructor.\n" RESET ; 
+    std::cout << BLUE << "Call default Bureaucrat constructor.\n" RESET ; 
 }
 
 Bureaucrat::Bureaucrat(std::string const & name, int rank) : _name(name) {
@@ -40,15 +40,15 @@ Bureaucrat::Bureaucrat(Bureaucrat const & toCopy)  : _name(toCopy.getName())
 
 Bureaucrat const & Bureaucrat::operator=(Bureaucrat const & toCopy)
 {
-    // Penser a mettre toCopy.getRank() instead
     if(this != &toCopy)
-        _rank = toCopy._rank;
+        _rank = toCopy.getRank();
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {       
-    std::cout <<  getName() <<  PURPLE " ! You're fired ! [DESTRUCTOR]" << RESET << std::endl;
+    std::cout <<  getName() <<  BLUE " ! You're fired ! [DESTRUCTOR]" << RESET << std::endl;
 }
+
 //--------------------------------------------------------------------------------------
 std::string const  & Bureaucrat::getName() const {
     return this->_name;
