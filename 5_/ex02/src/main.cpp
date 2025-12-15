@@ -70,7 +70,7 @@ int main(void){
             }
         }
         catch (const std::exception & e){
-            std::cout << YELLOW "Exeption caught : " << e.what() << RESET "\n";
+            std::cout << YELLOW "Exception caught : " << e.what() << RESET "\n";
         }
 
     std:: cout << BG_BLUE "\n\n------------- [4] Sign & Exec Stack : Schruberry Creation form ---------------\n" RESET << std::endl;
@@ -81,7 +81,7 @@ int main(void){
             scf.isExecuted(b);
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
 
     std:: cout << BG_BLUE "\n\n ------ [3] Error : Exec_grade too low ----------------------\n" RESET << std::endl;
@@ -93,7 +93,7 @@ int main(void){
                 ppf.isExecuted(b);
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
     std:: cout << BG_BLUE "\n\n ------ [3.1] Error : Unsigned Form ----------------------\n" RESET << std::endl;
         try {
@@ -103,7 +103,7 @@ int main(void){
                 ppf.isExecuted(b);
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
 
     std:: cout << BG_BLUE "\n\n ------ [4] Error : Invalid Shrub File Name ----------------------\n" RESET << std::endl;
@@ -115,7 +115,7 @@ int main(void){
             scf.isExecuted(b);
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
 
     std:: cout << BG_BLUE "\n\n ------ [5] Success/Failure : Robotomy REQUEST ----------------------\n" RESET << std::endl;
@@ -127,7 +127,7 @@ int main(void){
             rrf.isExecuted(b);
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
 
     return EXIT_SUCCESS;

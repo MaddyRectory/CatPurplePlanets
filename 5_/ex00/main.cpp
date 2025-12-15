@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:20:04 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/09 18:15:31 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:38:36 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std:: cout << "\n ------ Test 1 - constructors/destructors ------ \n" << std::en
     std::cout << CYAN << Ok << RESET;
     }
     catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : "<< RESET " \n";
+        std:: cout << YELLOW "Exception caught : "<< RESET " \n";
         std::cout << e.what(); 
     }
 
@@ -36,7 +36,7 @@ std:: cout << "\n ------ Test 2 - empty name [no crash] ------ \n" << std::endl;
     std::cout << CYAN " BadName : "<< Badname << RESET;
     }
     catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : "<< RESET " \n";
+        std:: cout << YELLOW "Exception caught : "<< RESET " \n";
         std::cout << e.what(); 
     }
     
@@ -47,7 +47,7 @@ std:: cout << "\n ------ Test 3 - rank too high ------------------------ \n" << 
     std::cout << CYAN "A : "<< tooHigh << RESET;
     }
     catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : "<< RESET " \n";
+        std:: cout << YELLOW "Exception caught : "<< RESET " \n";
         std::cout << e.what(); 
     }
     
@@ -58,7 +58,7 @@ std:: cout << "\n ------ Test 4 - rank too low -------------------------- \n" <<
     std::cout << CYAN "A : "<< tooLow << RESET;
     }
     catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : "<< RESET " \n";
+        std:: cout << YELLOW "Exception caught : "<< RESET " \n";
         std::cout << e.what(); 
     }
     
