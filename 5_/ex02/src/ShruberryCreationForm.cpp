@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/15 10:02:30 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:23:03 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ ShruberryCreationForm::ShruberryCreationForm()
 ShruberryCreationForm::ShruberryCreationForm(std::string target) 
     : AForm("ShruberryCreationForm", target, 145, 137) 
     {
+    std::cout << BLUE "Shrub Form - Checking target name..... \n" << RESET ;
     if (getTarget().size() > 100)
         throw ShruberryCreationForm::NameTooLong();
     std::string goodCharFilename = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
     if (getTarget().find_first_not_of(goodCharFilename) != std::string::npos)
         throw ShruberryCreationForm::NameInvalidChar();
+    std::cout << GREEN "Target approuved \n\n" RESET ;
     }
 
 ShruberryCreationForm::ShruberryCreationForm(const SCForm & toCopy)

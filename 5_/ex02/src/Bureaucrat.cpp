@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 11:19:58 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/12 15:32:20 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:01:38 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,9 @@ void Bureaucrat::demote() {
     
 
 void Bureaucrat::signForm(AForm & f) {
-    // try 
-    // {
-        f.checkSignedStatus();
-        f.beSigned(*this);
+    if (f.getSignState())
+        throw AForm::FormAlreadySigned();
+    f.beSigned(*this);
     // }
     // catch (const std::exception & e) {
     //     std::cout << _name << " couldn’t sign this " << f.getName() << " because " << e.what() ;
@@ -112,8 +111,9 @@ void Bureaucrat::signForm(AForm & f) {
 }
 
 void Bureaucrat::executeForm(AForm const & f) {
-        f.checkSignedStatus();
-        f.isExecuted(*this);
+    if (!f.getSignState())
+        throw AForm::FormUnsigned();
+    f.isExecuted(*this);
 }
 
 std::ostream & operator<<(std::ostream & s, Bureaucrat const & buro) {

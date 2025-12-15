@@ -46,44 +46,36 @@ Interface = classe avec que des methodes pure
 #include <unistd.h>
 
 int main(void){
-    std:: cout << BG_BLUE "\n\n------ [1] New Forms : construct and destruct ----------------------\n" RESET << std::endl;
+
+    std:: cout << BG_BLUE "\n\n------ [0] AForm is an abstract class (no crash) ----------------------\n" RESET << std::endl;
+                //AForm stack; // << Abstract donc impossible de compiler
+                AForm* ptr = NULL;
+                (void)ptr;
+
+    std::cout << BG_BLUE "\n\n------ [1] New forms : Construct, Sign, Exec, Destruct ----------------------\n" RESET << std::endl;
         try {
-                //AForm impossible;
-                RobotomyRequestForm rrf;
-                PresidentialPardonForm ppf("InnocentMan");
-                ShruberryCreationForm scf("Ho Ho Ho");
+            Bureaucrat b("Boss", 1);
+
+            AForm *forms[] = {
+                new ShruberryCreationForm("Garden"),
+                new RobotomyRequestForm("SubjectX"),
+                new PresidentialPardonForm("Innocent")
+            };
+
+            for (int i = 0; i < 3; i++) {
+                std::cout << BG_YELLOW "\nTest Form " << forms[i]->getName() << RESET "\n";
+                b.signForm(*forms[i]);
+                b.executeForm(*forms[i]);
+                delete forms[i];
+            }
         }
         catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+            std::cout << YELLOW "Exeption caught : " << e.what() << RESET "\n";
         }
 
-    std:: cout << BG_BLUE "\n\n------ [2] Sign & Exec : Presidential Pardon form ---------------\n" RESET << std::endl;
+    std:: cout << BG_BLUE "\n\n------------- [4] Sign & Exec Stack : Schruberry Creation form ---------------\n" RESET << std::endl;
         try {
-            Bureaucrat b("BigBoss", 1);
-            PresidentialPardonForm ppf("InnocentMan");
-
-            ppf.beSigned(b);
-            ppf.isExecuted(b);
-        }
-        catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-        }
-
-    std:: cout << BG_BLUE "\n\n------------- [3] Sign & Exec : Robotomy Request form ---------------\n" RESET << std::endl;
-        try {
-            Bureaucrat b("BigBoss", 1);
-            RobotomyRequestForm rrfb("Subject X");
-
-            rrfb.beSigned(b);
-            rrfb.isExecuted(b);
-        }
-        catch (const std::exception & e){
-            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-        }
-
-    std:: cout << BG_BLUE "\n\n------------- [4] Sign & Exec : Schruberry Creation form ---------------\n" RESET << std::endl;
-        try {
-            ShruberryCreationForm scf("Garden");
+            ShruberryCreationForm scf("Christmas_home");
             Bureaucrat b("BigBoss", 1);
             scf.beSigned(b);
             scf.isExecuted(b);
@@ -98,6 +90,16 @@ int main(void){
                 Bureaucrat b("MidBoss", 12);
 
                 ppf.beSigned(b);
+                ppf.isExecuted(b);
+        }
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
+        }
+    std:: cout << BG_BLUE "\n\n ------ [3.1] Error : Unsigned Form ----------------------\n" RESET << std::endl;
+        try {
+                PresidentialPardonForm ppf("InnocentMan");
+                Bureaucrat b("MidBoss", 12);
+
                 ppf.isExecuted(b);
         }
         catch (const std::exception & e){

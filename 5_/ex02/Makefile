@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/15 10:06:05 by mairivie         ###   ########.fr        #
+#    Updated: 2025/12/15 12:48:40 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,17 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 -include ${DEP}
 
 clean:
-	@if [ -d obj ]; then rm -r obj; echo "rm -r obj" ; fi
-	@if [ -f *_shruberry ]; then rm *_shruberry ; echo "rm *_shruberry" ; fi
+	@if [ -d obj ]; then \
+		rm -r obj; \
+		echo "rm -r obj" ; \
+	fi
+	
+	@files="$$(ls *_shruberry 2>/dev/null)"; \
+	if [ -n "$$files" ]; then \
+		rm $$files; \
+		echo "rm *_shruberry"; \
+	fi
+
 
 fclean: clean
 	rm -f $(NAME)
