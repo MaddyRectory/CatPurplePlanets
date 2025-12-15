@@ -35,6 +35,7 @@ private:
     bool _is_signed;
 
 public:
+    AForm();
     AForm(std::string const & name, std::string const & target, int const grade_to_sign, int const grade_to_ex);
     AForm(const AForm &toCopy);
     AForm & operator=(const AForm &toCopy);
@@ -42,9 +43,9 @@ public:
 
     std::string const & getName() const;
     std::string const & getTarget() const;
-    int const &         getGradeToSign() const;
-    int const &         getGradeToEx() const;
-    bool const &        getSignState() const;
+    int                 getGradeToSign() const;
+    int                 getGradeToEx() const;
+    bool                getSignState() const;
 
     void checkSignedStatus() const;
     void beSigned(Bureaucrat const & buro);

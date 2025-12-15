@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:15:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/08 17:35:17 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:41:28 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ Intern & Intern::operator=(const Intern & toCopy) {
     return *this;   
 }
 
-// const char * Intern::UnknownForm::what() const throw() {
-    
-// }
+const char * Intern::UnknownForm::what() const throw() {
+    return "ERROR: Don't know this form name.\n" ;
+}
 
 // Factory Function : 
 //WARNING : comme usage de new, il faudra faire gaffe a delete !
@@ -48,16 +48,10 @@ Intern & Intern::operator=(const Intern & toCopy) {
 //     return (new RobotomyRequestForm(target));
 // }
 
-// pointeur de fonction
-    // AForm* (*ptrMakeForm)(std::string const); //ptr sur fonction
-
-
-// fonction make form
-
 AForm * Intern::makeForm(std::string const form_name, std::string const target) {
     
     std::string listForm[3] = {
-        "shrubbery creation", 
+        "shruberry creation", 
         "robotomy request", 
         "presidential pardon" };
     AForm * newForm = NULL;
@@ -90,13 +84,8 @@ AForm * Intern::makeForm(std::string const form_name, std::string const target) 
                     << "Available forms are : "
                     << "shrubbery creation, robotomy request, presidential pardon."
                     << std::endl;
+            throw Intern::UnknownForm();
     }
     return (newForm);
 }
 
-
-
-    // "Unable to find [] form in the BDD. Can't make it.
-    // Forms available : RobotomyRequest, PresidentialPardon, ShruberryCreation"
-
-    // An intern creates a <name> form for <target>

@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:16 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:47:10 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:02:30 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,18 @@
 #include <fstream>
 #include <string>
 
+ShruberryCreationForm::ShruberryCreationForm() 
+    : AForm("ShruberryCreationForm", "Default", 145, 137)  {}
 
 ShruberryCreationForm::ShruberryCreationForm(std::string target) 
-    : AForm("ShruberryCreationForm", target, 145, 137) {}
+    : AForm("ShruberryCreationForm", target, 145, 137) 
+    {
+    if (getTarget().size() > 100)
+        throw ShruberryCreationForm::NameTooLong();
+    std::string goodCharFilename = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
+    if (getTarget().find_first_not_of(goodCharFilename) != std::string::npos)
+        throw ShruberryCreationForm::NameInvalidChar();
+    }
 
 ShruberryCreationForm::ShruberryCreationForm(const SCForm & toCopy)
     : AForm(toCopy) {}
@@ -42,12 +51,7 @@ const char * ShruberryCreationForm::NameInvalidChar::what() const throw() {
 }
 
 std::string ShruberryCreationForm::_createFileName() const {
-    if (getTarget().size() > 100)
-        throw ShruberryCreationForm::NameTooLong();
-    std::string goodCharFilename = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
-    if (getTarget().find_first_not_of(goodCharFilename) != std::string::npos)
-        throw ShruberryCreationForm::NameInvalidChar();
-    std::string fileName = getTarget() + "_shrubbery";
+    std::string fileName = getTarget() + "_shruberry";
     return fileName;
 };
 

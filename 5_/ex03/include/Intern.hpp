@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:15:22 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/08 17:08:31 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:32:50 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Intern {
         
         AForm * makeForm(std::string const form_name, std::string const target);
 
-        // class UnknownForm : public std::exception {
-        //     public: virtual const char * what() const throw(); };
+        class UnknownForm : public std::exception {
+            public: virtual const char * what() const throw(); };
 };
 
 #endif

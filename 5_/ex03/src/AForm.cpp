@@ -14,6 +14,11 @@
 #include "../include/AForm.hpp"
 #include "../include/colors.hpp"
 
+AForm::AForm() : _name("[BLANK]"), _target("[BLAMK]"),
+                _grade_to_sign(150), _grade_to_ex(150), _is_signed(0) {
+    std::cout << CYAN << "Call Form default constructor.\n" << RESET ;
+}
+
 AForm::AForm(std::string const & name, std::string const & target,
                 int const sign_rk, int const ex_rk) 
             : _name(name), _target(target), _grade_to_sign(sign_rk), 
@@ -38,10 +43,10 @@ AForm::AForm(const AForm &toCopy)  :
     _name(toCopy._name),
     _target(toCopy._target),
     _grade_to_sign(toCopy._grade_to_sign), 
-    _grade_to_ex(toCopy._grade_to_ex)  {
-
-    std::cout << BLUE << "Call Form Copy constructor.\n" << RESET;
-}
+    _grade_to_ex(toCopy._grade_to_ex)  
+    {
+            std::cout << BLUE << "Call Form Copy constructor.\n" << RESET;
+    }
 
 AForm & AForm::operator=(const AForm &toCopy) {
     if(this != &toCopy)
@@ -65,15 +70,15 @@ std::string const & AForm::getTarget() const {
     return _target;
 }
 
-int const & AForm::getGradeToSign() const {
+int     AForm::getGradeToSign() const {
     return _grade_to_sign;
 }
 
-int const & AForm::getGradeToEx() const {
+int     AForm::getGradeToEx() const {
     return _grade_to_ex;
 }
 
-bool const & AForm::getSignState() const{
+bool    AForm::getSignState() const{
     return _is_signed;
 }
 
@@ -90,11 +95,11 @@ const char * AForm::GradeTooLow::what() const throw() {
 }
 
 const char * AForm::FormAlreadySigned::what() const throw() {
-        return "this Aform is already signed.\n" ;
+        return "this Form is already signed.\n" ;
 }
 
 const char * AForm::FormUnsigned::what() const throw() {
-        return "this Aform is not signed.\n" ;
+        return "this Form is not signed.\n" ;
 }
 
 // ---------------------------------------------------
@@ -108,16 +113,18 @@ void AForm::checkSignedStatus() const {
 
 void AForm::beSigned(Bureaucrat const & buro) {
     std::cout << CYAN "Hi " << buro.getName() 
-            << "! Could you approve this " << this -> _name << " ?\n" RESET;
+            << "! Could you approve this " << this -> _name 
+            << " ?\n" RESET;
 
     if (_is_signed == 1)
         throw AForm::FormAlreadySigned();
-        
+
     buro.getRank() <= _grade_to_sign ?
          _is_signed = 1 
-         : throw AForm::GradeTooLow();   
+         : throw AForm::GradeTooLow();  
 
     std::cout << GREEN "Grumphy Bureaucrat quickly sign the form without reading it.\n" RESET;
+    
 }
 
 void AForm::isExecuted(Bureaucrat const & buro) const {
@@ -130,7 +137,7 @@ void AForm::isExecuted(Bureaucrat const & buro) const {
         std::cout << GREEN "Executor stamps the form. and give it back.\n"    
         : throw AForm::GradeTooLow();
          
-    std::cout << PURPLE "\nEXECUTION of the " << this -> _name << " for " << _target << ".\n" RESET ;
+    std::cout << PURPLE "\nEXECUTION of the " << this -> _name << " for " << this -> _target << ".\n" RESET ;
 
     this -> action();
 }

@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:22 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/04 15:17:36 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:07:28 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #include <ctime> // time 
 #include <cstdlib> // rand()
 
+
+RobotomyRequestForm::RobotomyRequestForm() 
+    : AForm("RobotomyRequestForm", "Default", 72, 45)  {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) 
     : AForm::AForm("RobotomyRequestForm", target, 72, 45) {}

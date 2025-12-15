@@ -39,117 +39,149 @@ Interface = classe avec que des methodes pure
     interface ne peut pas avoir d'atributs
 
 */
-#include "../include/colors.hpp"
-#include "../include/PresidentialPardonForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
-#include "../include/ShruberryCreationForm.hpp"
+// #include "../include/colors.hpp"
+// #include "../include/PresidentialPardonForm.hpp"
+// #include "../include/RobotomyRequestForm.hpp"
+// #include "../include/ShruberryCreationForm.hpp"
+// #include "../include/Intern.hpp"
+// #include <unistd.h>
+
+// int main(void){
+
+//     std:: cout << "\n ------ New Forms : construct & destroy ----------------------" << std::endl;
+//     try {
+//         RobotomyRequestForm rrf("SubjectA ");
+//         PresidentialPardonForm ppf("InnocentMan");
+//         ShruberryCreationForm scf("Garden");
+//     }
+//     catch (const std::exception & e){
+//         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+//     }
+
+//     std:: cout << "\n ------ Intern : construct & destroy ----------------------" << std::endl;
+//     try {
+//         Intern int_A;
+//     }
+//     catch (const std::exception & e){
+//         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+//     }
+//     std:: cout << "\n ------ Intern : main in subject ----------------------" << std::endl;
+//     try {
+//         Intern someRandomIntern;
+//         AForm* rrf;
+
+//         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+//         delete rrf;
+//     }
+//     catch (const std::exception & e){
+//         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+//     }
+//     std:: cout << "\n ------ Intern : Bad Form Name  ----------------------" << std::endl;
+//     try {
+//         Intern stud;
+//         AForm* form;
+
+//         form = stud.makeForm("save the world", "Bender");
+//     }
+//     catch (const std::exception & e){
+//         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+//     }
+//     std:: cout << "\n ------ Intern creates form, bureaucrat sign it ----------------------" << std::endl;
+//     try {
+//         Intern someOtherIntern;
+//         Bureaucrat B("boss", 1);
+//         AForm* ppf;
+
+//         ppf = someOtherIntern.makeForm("presidential pardon", "Bender");
+
+//         if (ppf) {
+//             B.signForm(*ppf);
+//             B.executeForm(*ppf);
+//             delete ppf;
+//         }
+//     }
+//     catch (const std::exception & e){
+//         std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+//     }
+//     return 0;
+// }
+
 #include "../include/Intern.hpp"
-#include <unistd.h>
+#include "../include/Bureaucrat.hpp"
+#include "../include/colors.hpp"
 
-int main(void){
+int main(void)
+{   
+    std::cout << BG_BLUE "\n------ [0] Intern : construct & destroy ----------------------\n" RESET << std::endl; 
+            try {
+                Intern int_A;
+            }
+            catch (const std::exception & e){
+                std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+            }
 
-    std:: cout << "\n ------ New Forms : construct & destroy ----------------------" << std::endl;
-    try
-        {
-        RobotomyRequestForm rrf("SubjectA ");
-        PresidentialPardonForm ppf("InnocentMan");
-        ShruberryCreationForm scf("Garden");
+    std::cout << BG_BLUE "\n------ [1] Intern : main in subject ----------------------\n" RESET << std::endl;
+            try {
+                Intern someRandomIntern;
+                AForm* rrf;
+
+                rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+                delete rrf;
+            }
+            catch (const std::exception & e){
+                std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
+            }     
+
+    std::cout << BG_BLUE "\n------ [2] Intern creates valid forms (polymorphism) ----------------------\n" RESET << std::endl;
+
+        AForm* forms[3];
+            try {
+                Intern intern;
+                Bureaucrat boss("Boss", 1);
+
+                forms[0] = intern.makeForm("robotomy request", "Marvin");
+                forms[1] = intern.makeForm("shruberry creation", "Garden");
+                forms[2] = intern.makeForm("presidential pardon", "Arthur");
+
+                for (int i = 0; i < 3; i++) {
+                    std::cout << BG_YELLOW "\nTrying to sign and exec "<< forms[i]->getName() << RESET " \n" ;
+                    boss.signForm(*forms[i]);
+                    boss.executeForm(*forms[i]);
+                }
+            }
+            catch (const std::exception & e){
+                std::cout << YELLOW "Exception caught : " << e.what() << RESET << std::endl;
+            }
+            for (int i = 0; i < 3; i++) {
+                    delete forms[i];
+            }
+
+    std::cout << BG_BLUE "\n------ [3] UNKNOWN Form Name ----------------------\n" RESET << std::endl;
+    
+        AForm* badName = NULL;
+        try {
+            Intern stud;
+            badName = stud.makeForm("save the world", "Bender");
         }
-    catch (const std::exception & e){
-        std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    }
-
-    std:: cout << "\n ------ Intern : construct & destroy ----------------------" << std::endl;
-    {
-        Intern int_A;
-    }
-    std:: cout << "\n ------ Intern : main in subject ----------------------" << std::endl;
-    
-        Intern someRandomIntern;
-        AForm* rrf;
-
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-        delete rrf;
-    
-    std:: cout << "\n ------ Intern : Bad Form Name  ----------------------" << std::endl;
-    
-        Intern stud;
-        AForm* form;
-
-        form = stud.makeForm("save the world", "Bender");
-
-    std:: cout << "\n ------ Intern creates form, bureaucrat sign it ----------------------" << std::endl;
-    
-        Intern someRandomIntern;
-        Bureaucrat B("boss", 1);
-        AForm* rrf;
-
-        rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-
-        if (rrf) {
-            B.signForm(*rrf);
-            B.executeForm(*rrf);
-            delete rrf;
+        catch (const std::exception & e){
+            std:: cout << YELLOW "Exception caught : " << e.what() << RESET " \n";
         }
+        delete badName;
 
-    return 0;
+    std::cout << BG_BLUE "\n------ [4] Playground ----------------------\n" RESET << std::endl;
+
+        AForm* yourForm = NULL;
+        Intern intern;
+        Bureaucrat boss("Boss", 1);
+            try {
+                yourForm = intern.makeForm("RODobotomy request", "Marvin");
+                boss.signForm(*yourForm);
+                boss.executeForm(*yourForm);
+            }
+            catch (const std::exception & e){
+                std::cout << YELLOW "Exception caught : " << e.what() << RESET << std::endl;
+            }
+        delete yourForm;
+
+        return 0;
 }
-
-    // try {}
-
-    // std:: cout << "\n ------ New Forms : sign & exec ----------------------" << std::endl;
-    // try
-    //     {
-    //     Bureaucrat b("BigBoss", 1);
-
-    //     std:: cout << "\n   ---- Presidential Pardon ----------------\n ";
-    //     PresidentialPardonForm ppf("InnocentMan");
-    //     ppf.beSigned(b);
-    //     ppf.isExecuted(b);
-    //     std:: cout << "\n   ---- Robotomy Request ------------------\n ";
-    //     RobotomyRequestForm rrfb("Subject X");
-    //     rrfb.beSigned(b);
-    //     rrfb.isExecuted(b);
-    //     std:: cout << "\n   ---- Shruberry Creation ------------------\n ";
-    //     ShruberryCreationForm scf("Garden");
-    //     scf.beSigned(b);
-    //     scf.isExecuted(b);
-
-    //     }
-    // catch (const std::exception & e){
-    //     std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    // }
-
-    // std:: cout << "\n ------ Now it's your turn ----------------------" << std::endl;
-    // try
-    //     {
-    //     //hire different graded bureaucrat
-    //     Bureaucrat a("BigBoss", 1);
-    //     Bureaucrat b("MidBoss", 19);
-    //     Bureaucrat c("MiniBoss", 142);
-
-    //     //choose your form
-    //     PresidentialPardonForm ppf("InnocentMan");
-    //     // RobotomyRequestForm rrf("Subject X");
-    //     // ShruberryCreationForm scf("Garden");
-
-    //     //do your tests
-    //     ppf.beSigned(a); 
-    //     ppf.isExecuted(a);
-    //     // ppf.beSigned(a);   
-    //     // ppf.isExecuted(a);
-    //     }
-    // catch (const std::exception & e){
-    //     std:: cout << YELLOW "Exeption caught : " << e.what() << RESET " \n";
-    // }
-
-
-
-    // RobotomyRequestForm rrf("SubjectA ");
-    // RobotomyRequestForm rrfb("SubjectB ");
-    // rrf.beSigned(b);
-    // rrf.execute(b);
-    //         rrf.execute(b);
-    // rrfb.beSigned(b);
-    // rrfb.execute(b);
-    //         rrfb.execute(b); 

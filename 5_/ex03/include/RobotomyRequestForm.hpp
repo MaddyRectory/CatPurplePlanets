@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:59:19 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:39:51 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:08:01 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class RobotomyRequestForm : public AForm {
     private :
         //
     public :
+            RobotomyRequestForm();
         RobotomyRequestForm(std::string target);
         RobotomyRequestForm(const RRForm & toCopy);
         virtual ~RobotomyRequestForm();
