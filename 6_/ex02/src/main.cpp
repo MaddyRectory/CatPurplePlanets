@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:07:00 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/16 16:01:33 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:10:34 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ void identify(Base* p) {
 // // Prints the actual type of the object referenced by p: "A", "B", or "C". 
 // // Using a pointer inside this function is forbidden.
 // void identify(Base& p) {
-    
+//         if (dynamic_cast<A*>(p))
+//             std::cout << "C'est un A\n";
+//         if (dynamic_cast<B*>(p))
+//             std::cout << "C'est un B\n";
+//         if (dynamic_cast<C*>(p))
+//             std::cout << "C'est un C\n";
 // }
 
 int main (void) {

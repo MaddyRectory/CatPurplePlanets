@@ -6,16 +6,16 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/16 16:09:46 by mairivie         ###   ########.fr        #
+#    Updated: 2025/12/16 12:46:31 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = cast_machine.out
+NAME = cast_machine
 
-SRCS = main.cpp Base.cpp
+SRCS = mainFalse.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
@@ -26,10 +26,10 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
+	@echo "\n-----\nAll good ! Use ./$(NAME) to start the program\n"
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
-	@echo "-----\n\nAll good ! Use ./$(NAME) to start the program\n"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@if [ ! -d obj ]; then mkdir -p $(@D); echo "mkdir -p $(@D)" ; fi
