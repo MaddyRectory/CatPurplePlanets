@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:07:00 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/16 18:32:46 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:38:29 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,11 +124,9 @@ int main (void) {
         Base * list[4];
         for (int i = 0; i <= 3; i++) { 
             list[i] = generate();
-            std::cout << "Test " << i << " > ";
-            std::cout << " [ptr] : ";
-            identify(list[i]);
-            std::cout << "          [ref] : ";
-            identify(*list[i]);
+            std::cout << "Comp. nbr " << i << " : \n" << std::endl;
+            identify(list[i]); //ptr
+            identify(*list[i]); //ref
             
             delete list[i];
         }
