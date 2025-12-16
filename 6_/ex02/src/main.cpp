@@ -6,13 +6,14 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:07:00 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/16 16:41:40 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:32:46 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
+#include <iostream> // cin cout tu coco
+#include <ctime> // init du random
+#include <cstdlib> //usage du random
+#include <exception> // je voulais typeinfo pour bad_cast mais interdit :(
 #include "../include/colors.hpp"
 #include "../include/Base.hpp"
 #include "../include/A.hpp"
@@ -22,8 +23,9 @@
 // randomly instantiates A, B, or C and returns the instance as a Base pointer.
 // Use anything you like for the random choice implementation.
 Base * generate(void) {
-    int alea = rand() % 3; // < /r 1d3
     Base * ptr = NULL;
+    int alea = rand() % 3;
+    
     switch (alea) {
         case 0 :
             ptr = new A;
@@ -42,34 +44,47 @@ Base * generate(void) {
 
 // Prints the actual type of the object pointed to by p: "A", "B", or "C".
 void identify(Base* p) {
-        if (dynamic_cast<A*>(p))
+        if (dynamic_cast<A*>(p) != NULL)
             std::cout << YELLOW "class A\n" RESET;
-        if (dynamic_cast<B*>(p))
+        else if (dynamic_cast<B*>(p) != NULL)
             std::cout << PURPLE "class B\n" RESET;
-        if (dynamic_cast<C*>(p))
+        else if (dynamic_cast<C*>(p) != NULL)
             std::cout << CYAN "class C\n" RESET;
-    
+        else 
+            std::cout << RED "WTF c'est quoi cette classe inconnue ?\n" RESET;
 }
 
-        // if (dynamic_cast<A*>(p))
-        //     std::cout << YELLOW "class A\n" RESET;
-        // else if (dynamic_cast<B*>(p))
-        //     std::cout << PURPLE "class B\n" RESET;
-        // else if (dynamic_cast<C*>(p))
-        //     std::cout << CYAN "class C\n" RESET;
-        // else
-        //     std::cout << RED "class Base\n" RESET;
+// Prints the actual type of the object referenced by p: "A", "B", or "C". 
+// Using a pointer inside this function is forbidden.
+// Including the typeinfo header is forbidden. 
+void identify(Base & p) {
+    try {
+        A& a = dynamic_cast<A&>(p);
+        std::cout << YELLOW "class A\n" RESET;
+        (void)a;
+        return;
+    }
+    catch (const std::exception& e) { }
+    
+    try {
+        B & b = dynamic_cast<B&>(p);
+        (void)b;
+        std::cout << PURPLE "class B\n" RESET;
+        return;
+    }
+    catch (const std::exception& e) { }
+        
+    try {
+        C & c = dynamic_cast<C&>(p);
+        (void)c;
+        std::cout << CYAN "class C\n" RESET;
+        return;
+    }
+    catch (const std::exception& e) { }
+}
 
-// // Prints the actual type of the object referenced by p: "A", "B", or "C". 
-// // Using a pointer inside this function is forbidden.
-// void identify(Base& p) {
-//         if (dynamic_cast<A*>(p))
-//             std::cout << "C'est un A\n";
-//         if (dynamic_cast<B*>(p))
-//             std::cout << "C'est un B\n";
-//         if (dynamic_cast<C*>(p))
-//             std::cout << "C'est un C\n";
-// }
+// NB: echec de cast sur reference throw std::bad_cast
+//mais <typeinfo> interdit donc exception = generaliste
 
 int main (void) {
     
@@ -80,7 +95,7 @@ int main (void) {
     std::cout << BG_BLUE "\nTest random generator" RESET << std::endl;
         int now = 0;
         int nb_test = 0;
-        int result[3];
+        int result[3] = {0};
         
         for (int i = 0; i <= 99999; i++) { 
             now = rand() % 3;
@@ -93,21 +108,29 @@ int main (void) {
             << result[2] << RESET " \n";
 
             
-    std::cout << BG_BLUE "\nGenerate & Identify one instance (ptr)" RESET << std::endl;
+    std::cout << BG_BLUE "\nPTR - Generate & Identify one instance (ptr >> NULL)" RESET << std::endl;
         Base * ptr = NULL; 
-
         ptr = generate();
         identify(ptr);
         delete ptr;
 
+    std::cout << BG_BLUE "\nREFF - Generate & Identify one instance (ref >> exception)" RESET << std::endl;
+        Base * b = generate();
+        Base & ref = *b; 
+        identify(ref);
+        delete b;
         
-    std::cout << BG_BLUE "\nGenerate & Identify multi instance (ptr)" RESET << std::endl;
-        Base * list[10];
-        for (int i = 0; i <= 9; i++) { 
+    std::cout << BG_BLUE "\n Compare Identify(ptr) & Identify(ref)" RESET << std::endl;
+        Base * list[4];
+        for (int i = 0; i <= 3; i++) { 
             list[i] = generate();
+            std::cout << "Test " << i << " > ";
+            std::cout << " [ptr] : ";
             identify(list[i]);
+            std::cout << "          [ref] : ";
+            identify(*list[i]);
+            
             delete list[i];
         }
-    
         return 0;
 }
