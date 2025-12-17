@@ -6,16 +6,16 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/16 12:46:31 by mairivie         ###   ########.fr        #
+#    Updated: 2025/12/17 15:28:24 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = cast_machine
+NAME = cast_machine.out
 
-SRCS = mainFalse.cpp
+SRCS = main.cpp Serializer.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
@@ -26,7 +26,7 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
-	@echo "\n-----\nAll good ! Use ./$(NAME) to start the program\n"
+	@echo "\n-----\nAll good ! Use ./$(NAME) to check the results\n"
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
