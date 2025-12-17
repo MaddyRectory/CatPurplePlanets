@@ -6,7 +6,19 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:28:56 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/17 15:28:57 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/17 16:42:49 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef data_HPP
+#define data_HPP
+
+struct s_data {
+    int x;
+    int y;
+    int z;
+} ;
+
+#endif
+
 
