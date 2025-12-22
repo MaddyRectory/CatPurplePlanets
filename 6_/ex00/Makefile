@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/17 16:58:26 by mairivie         ###   ########.fr        #
+#    Updated: 2025/12/22 16:02:49 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 NAME = cast_machine.out
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp #ScalarConverter.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))

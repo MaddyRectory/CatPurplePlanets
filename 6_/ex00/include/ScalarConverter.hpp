@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:41 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/17 16:55:48 by mairivie         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:58:12 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,8 @@
 #define EXIT_FAIL 1
 
 // ===== CLASS DECLARATION =====
-class ScalarConverter
-{
-private:
-
-
-public:
-    /* default constructor, copy constructor, affecation operator, default destructor */
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter &toCopy);
-    ScalarConverter &operator=(const ScalarConverter &toCopy);
-    ~ScalarConverter();
-
-
+class ScalarConverter {
+    public:
+        static void convert(std::string input);
 };
 #endif
