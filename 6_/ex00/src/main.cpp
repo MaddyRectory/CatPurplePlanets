@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:18 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/05 11:40:55 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/05 18:10:16 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include "../include/ScalarConverter.hpp"
 
 int main (int argc, char ** argv) {
-    
-    std::cout << GREEN "\nCompilation OK !" RESET << std::endl;
-    
+
     if (argc != 2)
         return (std::cout << RED "\nERROR: NB ARGUMENTS ! \n" RESET, 1);
-    std::cout << "Nb d'argument : " << argc << " & av[1] : " << argv[1] << std::endl;  
 
-    // ScalarConverter::convert("paslevraiarg");
+    //DEBUG
+    // std::cout << "Nb d'argument : " << argc << " & av[1] : " << argv[1] << std::endl;  
+
+    ScalarConverter::convert(argv[1]);
     
     return 0;
 }

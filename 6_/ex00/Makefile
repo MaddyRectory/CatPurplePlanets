@@ -6,16 +6,16 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 11:19:55 by mairivie          #+#    #+#              #
-#    Updated: 2025/12/22 16:02:49 by mairivie         ###   ########.fr        #
+#    Updated: 2026/01/05 18:14:29 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = cast_machine.out
+NAME = convert
 
-SRCS = main.cpp #ScalarConverter.cpp
+SRCS = main.cpp ScalarConverter.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
@@ -26,7 +26,7 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
-	@echo "\n-----\nAll good ! Use ./$(NAME) to start the program\n"
+	@echo "\n-----\nAll good ! Use ./$(NAME) |C++ Litteral| to start the program\n"
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
