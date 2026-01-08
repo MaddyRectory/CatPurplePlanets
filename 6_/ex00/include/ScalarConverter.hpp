@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:41 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/05 17:50:15 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:38:06 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,22 @@ class ScalarConverter {
     public:
         static void convert(std::string input);
 };
+
+// ===== TYPE FINDERS =====
+
+bool	typeIsChar(std::string str, Type* ptr);
+bool	typeIsInt(std::string str, Type* ptr);
+bool	typeIsFloat(std::string str, Type* ptr);
+bool	typeIsDouble(std::string str, Type* ptr);
+bool	typeIsPseudo(std::string str, Type* ptr);
+bool	isInvalid(std::string str, Type* ptr);
+
+// ===== PRINTERS =====
+
+void    printPseudoLit(std::string input);
+void	printChar(char c);
+void	printInt(int i, std::string str);
+void	printFloat(float f);
+void	printDouble(double d);
+
 #endif
