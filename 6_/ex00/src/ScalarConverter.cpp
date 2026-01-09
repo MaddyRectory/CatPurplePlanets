@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:35 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/09 14:20:18 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:32:42 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void ScalarConverter::convert(std::string input) {
             break;
     }
     
+    if (input_type == INVALID)
+        return;
     if (input_type == PSEUDO_LIT)
         return (printPseudoLit(input));
     
