@@ -1,10 +1,14 @@
 #include "../include/ScalarConverter.hpp"
 
+void	printCharKO() {
+		std::cout << "char: Non displayable" << std::endl;
+}
+
 void	printChar(char c) {
 	if (isprint(c))
 		std::cout << "char: \'" << c << "\'" << std::endl;
 	else
-		std::cout << "char: Non displayable" << std::endl;
+		printCharKO();
 }
 
 void	printInt(int i, std::string str) {

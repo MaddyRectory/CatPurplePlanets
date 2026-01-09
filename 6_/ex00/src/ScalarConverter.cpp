@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:35 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/09 13:58:14 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:20:18 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ double typeToDouble(std::string input, Type toCheck) {
         case CHAR: return static_cast<double>(input[0]);
         case INT: return static_cast<double>(atoi(input.c_str()));
         case FLOAT: return static_cast<double>(strtof(input.c_str(), NULL));
-        // case PSEUDO_LIT: return pseudotoDouble(input);
+        // DEBUG: case PSEUDO_LIT: return pseudotoDouble(input);
         default: return ( std::cout << RED "ERROR: Fail to convert\n", 0);
     }
 }
@@ -53,18 +53,16 @@ void ScalarConverter::convert(std::string input) {
     
     double pivot_value = typeToDouble(input, input_type);
 
-    // //DEBUG
-    // std::cout << GREEN "pivot value = " << pivot_value << "  Hopla " RESET << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
     
     char c = static_cast<char>(pivot_value);
-    printChar(c);
     int i = static_cast<int>(pivot_value);
-    printInt(i, input);
-
-    std::cout.precision(3); // << std::setprecision(4);
     float f = static_cast<float>(pivot_value);
-    printFloat(f);
     double d = static_cast<double>(pivot_value);
+
+    i >=130 ? printCharKO() : printChar(c);
+    printInt(i, input);
+    printFloat(f);
     printDouble(d);
     
     return;

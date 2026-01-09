@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:41 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/08 12:50:26 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:11:05 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ bool	isInvalid(std::string str, Type* ptr);
 
 void    printPseudoLit(std::string input);
 void	printChar(char c);
+void	printCharKO();
 void	printInt(int i, std::string str);
 void	printFloat(float f);
 void	printDouble(double d);

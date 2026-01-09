@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:07:00 by mairivie          #+#    #+#             */
-/*   Updated: 2025/12/16 18:38:29 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/09 14:26:37 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,13 @@ int main (void) {
             << result[2] << RESET " \n";
 
             
-    std::cout << BG_BLUE "\nPTR - Generate & Identify one instance (ptr >> NULL)" RESET << std::endl;
+    std::cout << BG_BLUE "\nPTR - Generate & Identify one instance (ptr return NULL)" RESET << std::endl;
         Base * ptr = NULL; 
         ptr = generate();
         identify(ptr);
         delete ptr;
 
-    std::cout << BG_BLUE "\nREFF - Generate & Identify one instance (ref >> exception)" RESET << std::endl;
+    std::cout << BG_BLUE "\nREFF - Generate & Identify one instance (ref return exception)" RESET << std::endl;
         Base * b = generate();
         Base & ref = *b; 
         identify(ref);
@@ -124,7 +124,7 @@ int main (void) {
         Base * list[4];
         for (int i = 0; i <= 3; i++) { 
             list[i] = generate();
-            std::cout << "Comp. nbr " << i << " : \n" << std::endl;
+            std::cout << "\nComp. nbr " << i << " : " << std::endl;
             identify(list[i]); //ptr
             identify(*list[i]); //ref
             
