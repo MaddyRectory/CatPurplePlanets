@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:41 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/08 12:38:06 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/08 12:50:26 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // ===== INCLUDES =====
 #include "colors.hpp"
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cstdlib>
 #include <limits>

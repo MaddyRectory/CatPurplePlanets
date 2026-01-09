@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:55:35 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/08 12:41:44 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:58:14 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,17 @@ void ScalarConverter::convert(std::string input) {
 
     // //DEBUG
     // std::cout << GREEN "pivot value = " << pivot_value << "  Hopla " RESET << std::endl;
-
+    
     char c = static_cast<char>(pivot_value);
     printChar(c);
     int i = static_cast<int>(pivot_value);
     printInt(i, input);
-    double d = static_cast<double>(pivot_value);
-    printDouble(d);
+
+    std::cout.precision(3); // << std::setprecision(4);
     float f = static_cast<float>(pivot_value);
     printFloat(f);
+    double d = static_cast<double>(pivot_value);
+    printDouble(d);
     
     return;
 }
