@@ -6,16 +6,16 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 14:00:22 by mairivie          #+#    #+#              #
-#    Updated: 2026/01/12 15:46:29 by mairivie         ###   ########.fr        #
+#    Updated: 2026/01/12 16:50:47 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = convert
+NAME = test.out
 
-SRCS = test.out
+SRCS = main.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
