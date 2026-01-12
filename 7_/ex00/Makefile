@@ -6,14 +6,14 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 14:00:22 by mairivie          #+#    #+#              #
-#    Updated: 2026/01/12 14:01:52 by mairivie         ###   ########.fr        #
+#    Updated: 2026/01/12 14:47:50 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = convert
+NAME = whatever.out
 
 SRCS = main.cpp
 	
