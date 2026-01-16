@@ -6,9 +6,10 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:07:31 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/12 14:08:02 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:39:46 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Array.hpp"
 #include <iostream>
+
