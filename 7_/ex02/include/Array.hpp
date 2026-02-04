@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:07:19 by mairivie          #+#    #+#             */
-/*   Updated: 2026/01/16 15:15:21 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:43:06 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ template <typename T>
 class Array
 {
 private:
-    T*              _data;
-    unsigned int    _size;
+    T*      _data;
+    int     _size;
 
 public:
 
@@ -35,7 +35,7 @@ public:
 
     Array() :_data(NULL), _size(0) {}
     
-    Array(unsigned int size) : _data(NULL), _size(size) {
+    Array(int size) : _data(NULL), _size(size) {
             if (size > 0)
                 _data = new T[size];
     }
@@ -48,7 +48,7 @@ public:
         }
     }
     
-    ~Array() { delete[] _data }
+    ~Array() { delete[] _data; }
     
 //OPERATORS
     
@@ -67,20 +67,21 @@ public:
         return *this;
     }
 
-    T & operator[](unsigned int i) {
-        if (i >= _size)
+    T & operator[](int i) {
+        if (i >= _size || i < 0)
             throw std::exception();
         return _data[i];
     }
 
-    const T & operator[](unsigned int i) const {
-        i >= _size ?
-            throw std::exception() : return _data[i];
+    const T & operator[](int i) const {
+        if (i >= _size || i < 0)
+            throw std::exception();
+        return _data[i];
     }
 
 //GETTERS
     
-    unsigned int get_size() const {
+    int get_size() const {
         return _size;
     }
 };
