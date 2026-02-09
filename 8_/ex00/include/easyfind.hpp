@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:31 by mairivie          #+#    #+#             */
-/*   Updated: 2026/02/05 14:54:55 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/02/05 15:16:19 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ typename T::iterator easyfind(T & container, int a) {
 //     }
 //     throw std::exception("no occurence found");
 // }
+
+// about find : https://dpt-info.di.unistra.fr/~grosjean/cpoa/STL.pdf
+// page 9
+// https://en.cppreference.com/w/cpp/container.html
+// source pour les methodes communes aux containers
+
 
 
 
