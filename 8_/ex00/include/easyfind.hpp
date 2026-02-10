@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:31 by mairivie          #+#    #+#             */
-/*   Updated: 2026/02/05 15:16:19 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/02/10 16:49:55 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@
 #include <iterator>
 
 
-// ===== CLASS DECLARATION =====
+// ===== FT_DECLARATION =====
 
 template <typename T>
 typename T::iterator easyfind(T & container, int a) {
     if (container.empty())
-        throw std::exception("container is empty");
+        throw std::invalid_argument("container is empty");
     
     typename T::iterator it = container.begin();
     while(it != container.end() && *it != a) {
             ++it;    
     }
     if (it == container.end())
-        throw std::exception("no occurence found");
+        throw std::invalid_argument("no occurence found");
     return it;
 }
 
@@ -49,6 +49,20 @@ typename T::iterator easyfind(T & container, int a) {
 //     }
 //     throw std::exception("no occurence found");
 // }
+
+template <typename T>
+void print(T & container, std::string name) {
+    std::cout << name << " [ ";
+    
+    typename T::iterator it = container.begin();
+    while(it != container.end()) {
+            std::cout << *it << " ";
+            ++it;    
+    }
+    std::cout << " ]" << std::endl;
+}
+
+// ===== SOURCES =====
 
 // about find : https://dpt-info.di.unistra.fr/~grosjean/cpoa/STL.pdf
 // page 9
