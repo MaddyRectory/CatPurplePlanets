@@ -1,3 +1,6 @@
+
+#pragma once
+
 #include <exception>
 #include <iostream>
 #include <string>
@@ -24,8 +27,9 @@ class Span {
         void	addNumbers(std::set<int>::iterator begin, std::set<int>::iterator end);
 
         void    printNumbers();
-        int     shortestSpan();
-        int     longestSpan();
+
+        unsigned int     shortestSpan();
+        unsigned int     longestSpan();
 
 // EXCEPTIONS
 

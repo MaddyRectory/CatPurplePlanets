@@ -14,14 +14,14 @@
 class Span {
     private :
         Span();
-        set storage;
+        set _storage;
         unsignedint size;
 
     public :
         Span(unsignedint N) : size(N) {};
         // copy ?
         // operator= ?
-        ~Span() { delete storage; };
+        ~Span() { delete _storage; };
 
         void    addNumber(int new_nbr);
         void    addNunber(int * arrray, int size);
@@ -35,7 +35,7 @@ class Span {
 		};
 		
 		
-		class FullSpanException : public std::exception {
+		class FullStorageException : public std::exception {
 			const char* what() const throw() {
 				return ("The span is full");
 			}
@@ -47,13 +47,13 @@ class Span {
 
 */
 
-#include "Span.hpp"
+#include "../include/Span.hpp"
 #include <limits>
 #include <set>
 
 Span::Span() {}
 
-Span::Span(unsigned int N): maxSize(N) {}
+Span::Span(unsigned int N): _maxSize(N) {}
 
 Span::Span(const Span &other) {
 	if (this == &other)
@@ -61,11 +61,11 @@ Span::Span(const Span &other) {
 	*this = other;
 }
 
-Span &Span::operator=(const Span &other) {
+Span & Span::operator=(const Span &other) {
 	if (this == &other)
 		return (*this);
-	maxSize = other.maxSize;
-	storage = other.storage;
+	_maxSize = other._maxSize;
+	_storage = other._storage;
 	return (*this);
 }
 
@@ -74,22 +74,22 @@ Span::~Span() {}
 // METHODS
 
 void	Span::addNumber(int number) {
-	if (storage.size() >= maxSize)
-		throw  FullSpanException();
-	storage.insert(number);
+	if (_storage.size() >= _maxSize)
+		throw  FullStorageException();
+	_storage.insert(number);
 }
 
 void	Span::addNumbers(std::set<int>::iterator begin, std::set<int>::iterator end) {
     unsigned int distance = std::distance(begin, end);
 
-    if (container.size() + distance > maxSize)
+    if (_storage.size() + distance > _maxSize)
         throw std::out_of_range("Cannot add more numbers, container would exceed max size");
-    container.insert(begin, end);
+    _storage.insert(begin, end);
 }
 
 void	Span::printNumbers() {
 	std::cout << "Stored values: ";
-	for (std::set<int>::iterator it = storage.begin(); it != storage.end(); it++)
+	for (std::set<int>::iterator it = _storage.begin(); it != _storage.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;	
 }
@@ -98,11 +98,11 @@ unsigned int    Span::shortestSpan() {
 
 	unsigned int	shortSpan;
 
-	if (storage.size() < 2)
+	if (_storage.size() < 2)
 		throw NoSpanException();
     
 	shortSpan = std::numeric_limits<int>::max();
-	for (std::set<int>::iterator it = storage.begin(); it != storage.end(); it++)
+	for (std::set<int>::iterator it = _storage.begin(); it != _storage.end(); it++)
 	{
 		std::set<int>::iterator next_it = it;
 		next_it++;
@@ -114,7 +114,7 @@ unsigned int    Span::shortestSpan() {
 }
 
 unsigned int	Span::longestSpan() {
-	if (storage.size() < 2)
+	if (_storage.size() < 2)
 		throw NoSpanException();
-	return (*storage.rbegin() - *storage.begin());
+	return (*_storage.rbegin() - *_storage.begin());
 }
