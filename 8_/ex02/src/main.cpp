@@ -1,4 +1,4 @@
-#include "MutantStack.hpp"
+#include "../include/MutantStack.hpp"
 #include <iostream>
 
 #define PRINT(x) std::cout << x << std::endl
