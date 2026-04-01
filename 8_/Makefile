@@ -6,7 +6,7 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 14:00:22 by mairivie          #+#    #+#              #
-#    Updated: 2026/01/21 14:08:25 by mairivie         ###   ########.fr        #
+#    Updated: 2026/04/01 18:22:58 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
-	@echo "-----\nAll good ! Use ./$(NAME) to start the program\n-----"
+	@echo "-----"
+	@echo "All good ! Use ./$(NAME) to start the program"
 .PHONY: all
 
 $(NAME): $(OBJ)
