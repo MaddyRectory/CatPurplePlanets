@@ -1,51 +1,14 @@
-
-
-
-
-/*
-#include "../Span.hpp"
-
-#include <exception>
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <set>
-
-class Span {
-    private :
-        Span();
-        set _storage;
-        unsignedint size;
-
-    public :
-        Span(unsignedint N) : size(N) {};
-        // copy ?
-        // operator= ?
-        ~Span() { delete _storage; };
-
-        void    addNumber(int new_nbr);
-        void    addNunber(int * arrray, int size);
-        int     shortestSpan();
-        int     longestSpan();
-
-        class NoSpanException : public std::exception {
-			const char* what() const throw() {
-				return ("There is no span to find");
-			}
-		};
-		
-		
-		class FullStorageException : public std::exception {
-			const char* what() const throw() {
-				return ("The span is full");
-			}
-		};
-
-
-
-};
-
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/09 09:21:56 by mairivie          #+#    #+#             */
+/*   Updated: 2026/04/09 09:22:36 by mairivie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/Span.hpp"
 #include <limits>

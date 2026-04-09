@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/09 09:21:50 by mairivie          #+#    #+#             */
+/*   Updated: 2026/04/09 09:26:47 by mairivie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/Span.hpp"
 
 int main()
@@ -42,7 +54,7 @@ int main()
 		sp4.addNumber(std::rand());
 	} 
 */
-	std::cout << "=== Stored Values ===" << std::endl;
+	std::cout << CYAN "=== Stored Values ===" RESET << std::endl;
 	std::cout << "sp_empty\t";
 	sp_empty.printNumbers();
 	std::cout << "sp1\t\t";
@@ -55,7 +67,7 @@ int main()
 	// std::cout << "sp4\t\t";
 	// sp4.printNumbers(); // A lot of numbers
 */
-	std::cout << std::endl << "=== Shortest/Longest Span ===" << std::endl;
+	std::cout << std::endl << CYAN "=== Shortest/Longest Span ===" RESET << std::endl;
 	std::cout << "sp1, Shortest span:\t" << sp1.shortestSpan() << std::endl;
 	std::cout << "sp1, Longest span:\t" << sp1.longestSpan() << std::endl;
 
@@ -68,12 +80,10 @@ int main()
 	sp2.addNumber(-3);
 	sp2.addNumber(-2);
 	sp2.addNumber(117);
-		std::cout << std::endl << "=== Shortest/Longest Span ===" << std::endl;
+		std::cout << std::endl << CYAN "=== Shortest/Longest Span ===" RESET << std::endl;
 	std::cout << "sp1, Shortest span:\t" << sp1.shortestSpan() << std::endl;
 	std::cout << "sp1, Longest span:\t" << sp1.longestSpan() << std::endl;
 
 	std::cout << "sp2, Shortest span:\t" << sp2.shortestSpan() << std::endl;
 	std::cout << "sp2, Longest span:\t" << sp2.longestSpan() << std::endl;
 }
-
-//TODO: Ask LUMA for more tests

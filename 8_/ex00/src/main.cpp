@@ -6,7 +6,7 @@
 /*   By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:38 by mairivie          #+#    #+#             */
-/*   Updated: 2026/02/10 17:05:18 by mairivie         ###   ########.fr       */
+/*   Updated: 2026/04/09 09:25:46 by mairivie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 
 int main(void) {
 
-    std::cout << "=== Empty Container ===" << std::endl;
+    std::cout << CYAN "=== Empty Container ===" RESET << std::endl;
     try {
     std::vector<int> v;
     easyfind(v, 42);
@@ -63,7 +63,7 @@ int main(void) {
         std::cerr << e.what() << '\n';
     }
 
-        std::cout << "\n=== No Occurence found ===" << std::endl;
+        std::cout << RED "\n=== No Occurence found ===" RESET << std::endl;
     try
     {
     std::vector<int> v;
@@ -85,7 +85,7 @@ int main(void) {
     int target = 42;
     std::cout << "target is : " << target << std::endl;
     
-    std::cout << "\n=== VECTOR ===" << std::endl;
+    std::cout << CYAN "\n=== VECTOR ===" RESET << std::endl;
     try {
     std::vector<int> v(&values[0], &values[6]);
     print<std::vector<int> >(v, "State 0");
@@ -106,7 +106,7 @@ int main(void) {
     }
 
 
-    std::cout << "\n=== LIST ===" << std::endl;
+    std::cout << CYAN "\n=== LIST ===" RESET << std::endl;
     try
     {
     std::list<int> v(&values[0], &values[6]);
@@ -124,7 +124,7 @@ int main(void) {
         std::cerr << e.what() << '\n';
     }
     
-    std::cout << "\n=== DEQUE ===" << std::endl;
+    std::cout << CYAN "\n=== DEQUE ===" RESET << std::endl;
     try
     {
     std::deque<int> v(&values[0], &values[6]);
