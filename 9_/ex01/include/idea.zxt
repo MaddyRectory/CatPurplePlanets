@@ -1,0 +1,29 @@
+Container used :
+ex00 : multimap (key/value triee) + (key doublons autorisees)
+
+ex01 : stack (last In First Out) / (first in last out)
+
+ex02 : vector / set
+
+parsing
+ac !2
+    throw(error)
+only digit,space, - + / *
+
+creation dúne stack
+en partant de lárriere 
+    add chaque char a la stack (compteur digit sign)
+    si char suivant =/ espace
+        throw error
+    si deux derniers chars =/ digit 
+        throw error
+
+check coherence signs digit
+
+int a = first out
+int b = next out
+
+Switch case selon sign
+    default: throw error
+
+put result in acnext

@@ -2,9 +2,16 @@ requirement
 
 
 Container used :
-ex00 : map ()
+ex00 : set () / map() => maybe multimap (key doublons autorisees)
+https://en.cppreference.com/cpp/container/multimap
+
 ex01 : stack
 ex02 : vector / set
+
+
+set = triee donc insertion facile du node, mais soucis si node existe deja dans la DB
+map = possibilite de doublon mais comme pas triee toute la DB doit etre parcourue a chaque fois => moins efficace.
+
 
 
 ex00:
