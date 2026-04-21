@@ -1,0 +1,45 @@
+requirement 
+
+
+Container used :
+ex00 : map ()
+ex01 : stack
+ex02 : vector / set
+
+
+ex00:
+parsing 
+    ac !2 
+Stockage DB
+    set dont key est une string 
+parsing du fichier en argument
+    open > fail
+        throwcould not open file
+
+    while getline return txt
+        debut dinput different de format X = digit [20XX-XX-XX | X]'
+            throw=> bad input (input)
+        parsing annee
+        atoiXX entre 01 et 12 
+        atoiXX entre 01 et 31
+            si 02 max = 28
+            si 04, 06 09 11 max = 30
+
+            throw => bad input
+        atoi after must bu > 0
+            throw=> not a positive number
+        must be an in
+            thorw too large a number
+
+ajouter mon module dans mon set
+resultat = value * value element precedent
+retirer le module
+
+printfinal :
+[date] => [value argument] = resultat
+
+
+
+
+
+    
