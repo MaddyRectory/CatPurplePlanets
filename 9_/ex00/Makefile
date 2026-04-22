@@ -13,9 +13,9 @@
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = template
+NAME = btc
 
-SRCS = main.cpp
+SRCS = btc.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))

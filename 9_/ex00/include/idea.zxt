@@ -18,7 +18,10 @@ ex00:
 parsing 
     ac !2 
 Stockage DB
-    set dont key est une string 
+    open data.csv
+    recup chaque ligne (format : date | prix) 
+    multimap dont key est date et prix es un nb associé (unsigned int) 
+
 parsing du fichier en argument
     open > fail
         throwcould not open file
@@ -47,6 +50,130 @@ printfinal :
 
 
 
+PROGRAMME BitcoinExchange
+═══════════════════════════════════════════════
 
+CONSTANTES:
+    DB_FILE = "data.csv"
+
+═══════════════════════════════════════════════
+CLASSE BitcoinExchange
+═══════════════════════════════════════════════
+
+ATTRIBUTS:
+    _db : std::map<std::string, float>
+         └─ clé   : date au format "YYYY-MM-DD"
+         └─ valeur: prix BTC (float)
+
+───────────────────────────────────────────────
+MÉTHODE loadDatabase(filename)
+───────────────────────────────────────────────
+    Ouvrir filename
+    SI échec → throw std::runtime_error("could not open file: " + filename)
+
+    Lire et ignorer la première ligne (header "date,exchange_rate")
+
+    POUR CHAQUE ligne du fichier:
+        SI ligne vide → continuer
+
+        Trouver le séparateur ','
+        SI absent → throw "bad database format: " + ligne
+
+        date  = partie gauche
+        valeur = partie droite
+
+        Valider date (voir FONCTION validateDate)
+        Convertir valeur en float
+        SI conversion échoue ou valeur < 0 → throw "bad database value"
+
+        _db[date] = valeur
+    Fermer le fichier
+
+───────────────────────────────────────────────
+MÉTHODE processInput(filename)
+───────────────────────────────────────────────
+    Ouvrir filename
+    SI échec → throw std::runtime_error("Error: could not open file.")
+
+    Lire et ignorer la première ligne (header "date | value")
+
+    POUR CHAQUE ligne du fichier:
+        SI ligne vide → continuer
+
+        Trouver " | " dans la ligne
+        SI absent → afficher "Error: bad input => " + ligne  [et continuer]
+
+        date  = partie gauche  (trimée)
+        valeur = partie droite (trimée)
+
+        // --- Validation de la date ---
+        SI validateDate(date) échoue:
+            afficher "Error: bad input => " + date  [et continuer]
+
+        // --- Validation de la valeur ---
+        Convertir valeur en float
+        SI conversion échoue (caractères non numériques, etc.):
+            afficher "Error: bad input => " + valeur  [et continuer]
+        SI valeur < 0:
+            afficher "Error: not a positive number."  [et continuer]
+        SI valeur > 1000:
+            afficher "Error: too large a number."  [et continuer]
+
+        // --- Recherche dans la DB ---
+        it = _db.lower_bound(date)
+
+        SI it == _db.begin() ET it->first != date:
+            // Aucune date antérieure ou égale disponible
+            afficher "Error: no exchange rate available for " + date  [et continuer]
+
+        SI it == _db.end() OU it->first > date:
+            // Reculer sur la date immédiatement inférieure
+            --it
+
+        prix = it->second
+        résultat = valeur * prix
+
+        Afficher: date + " => " + valeur + " = " + résultat
+
+───────────────────────────────────────────────
+FONCTION validateDate(dateStr) → bool/throw
+───────────────────────────────────────────────
+    SI longueur != 10 → invalide
+    SI format != "DDDD-DD-DD" (chiffres et tirets aux bons endroits) → invalide
+
+    année  = atoi(dateStr[0..3])
+    mois   = atoi(dateStr[5..6])
+    jour   = atoi(dateStr[8..9])
+
+    SI mois < 1 OU mois > 12 → invalide
+
+    joursMax = 31
+    SI mois ∈ {4, 6, 9, 11}  → joursMax = 30
+    SI mois == 2:
+        SI année bissextile (% 4 == 0 && (% 100 != 0 || % 400 == 0))
+            → joursMax = 29
+        SINON → joursMax = 28
+
+    SI jour < 1 OU jour > joursMax → invalide
+
+    RETOURNER valide
+
+═══════════════════════════════════════════════
+MAIN
+═══════════════════════════════════════════════
+    SI argc != 2:
+        afficher "Usage: ./btc <input_file>"
+        RETOURNER 1
+
+    BitcoinExchange btc
+    
+    TRY:
+        btc.loadDatabase("data.csv")
+        btc.processInput(argv[1])
+    CATCH (exception& e):
+        afficher "Error: " + e.what()
+        RETOURNER 1
+
+    RETOURNER 0
 
     
