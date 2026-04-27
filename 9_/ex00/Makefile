@@ -15,7 +15,7 @@ CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 NAME = btc
 
-SRCS = btc.cpp
+SRCS = btc.cpp main.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
@@ -26,7 +26,7 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
-	@echo "-----\nAll good ! Use ./$(NAME) to start the program\n-----"
+	@echo "-----\nAll good ! Use ./$(NAME) file_name to start the program\n-----"
 .PHONY: all
 
 $(NAME): $(OBJ)
