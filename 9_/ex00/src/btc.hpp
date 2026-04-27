@@ -1,14 +1,22 @@
-#ifndef BitcoinExchange_HPP
-#define BitcoinExchange_HPP
+#ifndef BTC_EX_HPP
+	#define BTC_EX_HPP
 
-#define SUCCESS 0
-#define FAILURE 1
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE 1
 
-
+/*
 #define FLOAT_MAX 1000
 #define FLOAT_MIN 0
+*/
 
-#define DATA_FILE "data.csv"
+#define DATA_FILE "./src/data.csv"
+
+#define ORANGE "\033[38;5;208m"
+#define RED "\033[38;5;196m"
+#define TEAL "\033[38;5;49m"
+#define PURPLE "\033[38;5;129m"
+#define OLIVE "\033[38;5;58m"
+#define RESET "\033[0m"
 
 #include <map>
 #include <iostream>
@@ -18,10 +26,9 @@
 #include <sstream>
 #include <typeinfo>
 #include <cfloat>
-#include "colors.hpp"
 
 
-class BitcoinExchange {
+class BitcoinEx {
 
 	private :
 		std::map<std::string, double>	_bitcoin;
@@ -33,10 +40,10 @@ class BitcoinExchange {
 		bool		lineIsValid(std::string &key, std::string &value, const std::string &line);
 	
 	public :
-		BitcoinExchange();
-		~BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange &copy);
-		BitcoinExchange &operator=(const BitcoinExchange &copy);
+		BitcoinEx();
+		~BitcoinEx();
+		BitcoinEx(const BitcoinEx &copy);
+		BitcoinEx &operator=(const BitcoinEx &copy);
 
 		std::map<std::string, double>	getBitcoin() const;
 		std::map<std::string, double>	getValueBitcoin() const;

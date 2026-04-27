@@ -1,22 +1,22 @@
 
-#include "../include/btc.hpp"
+#include "btc.hpp"
 
-BitcoinExchange::BitcoinExchange() {
+BitcoinEx::BitcoinEx() {
 	try {
 		readData(DATA_FILE, ",");
 	} catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
-		exit (FAILURE);
+		exit (EXIT_FAILURE);
 	}
 }
 
-BitcoinExchange::~BitcoinExchange() {}
+BitcoinEx::~BitcoinEx() {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy) {
+BitcoinEx::BitcoinEx(const BitcoinEx &copy) {
 	*this = copy;
 }
 
-BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy) {
+BitcoinEx	&BitcoinEx::operator=(const BitcoinEx &copy) {
 	if (this != &copy) {
 		if (!this->_bitcoin.empty())
 			this->_bitcoin.clear();
@@ -28,18 +28,18 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy) {
 	return *this;
 }
 
-std::map<std::string, double>	BitcoinExchange::getBitcoin() const {
+std::map<std::string, double>	BitcoinEx::getBitcoin() const {
 	return _bitcoin;
 }
 
-std::map<std::string, double>	BitcoinExchange::getValueBitcoin() const {
+std::map<std::string, double>	BitcoinEx::getValueBitcoin() const {
 	return _value_bitcoin;
 }
 
 /**
  * ! UTILS
  */
-std::string	BitcoinExchange::trimWhiteSpaces(std::string &line)
+std::string	BitcoinEx::trimWhiteSpaces(std::string &line)
 {
 	size_t start = line.find_first_not_of(" \t");
 	if (start == std::string::npos)
@@ -48,7 +48,7 @@ std::string	BitcoinExchange::trimWhiteSpaces(std::string &line)
 	return line.substr(start, end - start + 1);
 }
 
-bool	BitcoinExchange::lineIsValid(std::string &key, std::string &value, const std::string &line)
+bool	BitcoinEx::lineIsValid(std::string &key, std::string &value, const std::string &line)
 {
 	std::istringstream	iss(value);
 	float				floatValue;
@@ -68,7 +68,7 @@ bool	BitcoinExchange::lineIsValid(std::string &key, std::string &value, const st
 /**
  * @brief Read the data from the file and store it in a map
  */
-void	BitcoinExchange::readData(const char *file_name, std::string separator)
+void	BitcoinEx::readData(const char *file_name, std::string separator)
 {
 
 	std::ifstream file(file_name);
@@ -100,7 +100,7 @@ void	BitcoinExchange::readData(const char *file_name, std::string separator)
 /**
  * @brief Get the data from the input file and display the price
  */
-void	BitcoinExchange::getAndDisplay(char **av)
+void	BitcoinEx::getAndDisplay(char **av)
 {
 	std::ifstream file(av[1]);
 	if (!file.is_open())
@@ -139,7 +139,7 @@ void	BitcoinExchange::getAndDisplay(char **av)
 /**
  * @brief Display the final price of the bitcoin
  */
-void	BitcoinExchange::displayPrice(std::string &value, std::string &date) {
+void	BitcoinEx::displayPrice(std::string &value, std::string &date) {
 
 		std::map<std::string, double>::iterator it;
 		float									final_price;

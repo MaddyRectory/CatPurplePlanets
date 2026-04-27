@@ -50,14 +50,14 @@ printfinal :
 
 
 
-PROGRAMME BitcoinExchange
+PROGRAMME BitcoinEx
 ═══════════════════════════════════════════════
 
 CONSTANTES:
     DB_FILE = "data.csv"
 
 ═══════════════════════════════════════════════
-CLASSE BitcoinExchange
+CLASSE BitcoinEx
 ═══════════════════════════════════════════════
 
 ATTRIBUTS:
@@ -165,7 +165,7 @@ MAIN
         afficher "Usage: ./btc <input_file>"
         RETOURNER 1
 
-    BitcoinExchange btc
+    BitcoinEx btc
     
     TRY:
         btc.loadDatabase("data.csv")

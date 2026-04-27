@@ -1,22 +1,11 @@
-#include "../include/btc.hpp"
+#include "btc.hpp"
 
 /*
-int main(int ac, char** av)
-{
-    if (ac != 2)
-    {
-        std::cout << "Error : bad argument\n";
-        return EXIT_FAILURE ;
-    }
-    std::cout << "File name: " << av[1] << std::endl;
-    if ()
-    
-    
-
-    return EXIT_SUCCESS;
-}
-*/    
-
+Check arguments
+class declaration
+run prog : getAndDisplay 
+catch exceptions
+*/
 int main(int ac, char **av) {
 
 	if (ac != 2) {
@@ -26,13 +15,17 @@ int main(int ac, char **av) {
 		return EXIT_FAILURE;
 	}
 	
-	BitcoinExchange exchange;
+	BitcoinEx exchange;
 
 	try {
 		exchange.getAndDisplay(av);
 	} 
     catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED "Error: " 
+                << e.what() 
+                << RESET
+                << std::endl;
+        
 		return EXIT_FAILURE;
 	}
 	return EXIT_SUCCESS;
