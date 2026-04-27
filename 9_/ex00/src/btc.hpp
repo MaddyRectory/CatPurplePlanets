@@ -4,10 +4,8 @@
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 
-/*
 #define FLOAT_MAX 1000
 #define FLOAT_MIN 0
-*/
 
 #define DATA_FILE "./src/data.csv"
 

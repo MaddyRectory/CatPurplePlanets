@@ -79,8 +79,9 @@ void	BitcoinEx::readData(const char *file_name, std::string separator)
 	
 	// * Pour sauter la première ligne
 	std::getline(file, line);
-	if (line.empty())
-		throw CouldNotOpenFile();
+	if (line != "date,exchange_rate" )   
+        throw CouldNotOpenFile();
+
 	while (std::getline(file, line))
 	{
 		std::string key = line.substr(0, line.find(separator));
@@ -109,7 +110,7 @@ void	BitcoinEx::getAndDisplay(char **av)
 	std::string line;
 
 	std::getline(file, line);
-	if (line.empty())
+	if (line != "date | value" )   
 		throw InvalidInputFile();
 	while (std::getline(file, line))
 	{
@@ -145,9 +146,9 @@ void	BitcoinEx::displayPrice(std::string &value, std::string &date) {
 		float									final_price;
 		float									nb_bitcoin = std::strtod(value.c_str(), NULL);
 
-		if (nb_bitcoin < 0)
+		if (nb_bitcoin < FLOAT_MIN)
 			throw NotPositifNumber();
-		if (nb_bitcoin > 1000)
+		if (nb_bitcoin > FLOAT_MAX)
 			throw TooLargeNumber();
 
 		if (_value_bitcoin.find(date) != _value_bitcoin.end())
