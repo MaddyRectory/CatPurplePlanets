@@ -8,18 +8,39 @@ int main(int ac, char **av) {
                 << std::endl;
 		return EXIT_FAILURE;
 	}
-	
-	for (int i=0; i<ac; i++) {
-		std::cout << av[i] << std::endl;
-	}
-	/* code here */
 
+	RPN			calculator;
+	std::string expression = av[1];
+	
 	try {
-		/* code here */
-	} 
+		calculator.calculator(expression);
+	}	
     catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		return EXIT_FAILURE;
 	}
 	return EXIT_SUCCESS;
 }
+
+/*
+#include "RPN.hpp"
+
+int main(int ac, char **av) {
+	
+if (ac < 2) {
+		std::cout << "Usage: ./rpn \"[expression]\"" << std::endl;
+		return FAILURE;
+	}
+	
+	RPN			calculator;
+	std::string expression = av[1];
+	
+	try {
+		calculator.calculator(expression);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+		return FAILURE;
+	}
+	return SUCCESS;
+}
+*/
