@@ -10,7 +10,8 @@ BitcoinEx::BitcoinEx() {
 	}
 }
 
-BitcoinEx::~BitcoinEx() {}
+BitcoinEx::~BitcoinEx() {
+}
 
 BitcoinEx::BitcoinEx(const BitcoinEx &copy) {
 	*this = copy;
@@ -39,8 +40,8 @@ std::map<std::string, double>	BitcoinEx::getValueBitcoin() const {
 /**
  * ! UTILS
  */
-std::string	BitcoinEx::trimWhiteSpaces(std::string &line)
-{
+
+std::string	BitcoinEx::trimWhiteSpaces(std::string &line) {
 	size_t start = line.find_first_not_of(" \t");
 	if (start == std::string::npos)
 		return "";
@@ -48,8 +49,7 @@ std::string	BitcoinEx::trimWhiteSpaces(std::string &line)
 	return line.substr(start, end - start + 1);
 }
 
-bool	BitcoinEx::lineIsValid(std::string &key, std::string &value, const std::string &line)
-{
+bool	BitcoinEx::lineIsValid(std::string &key, std::string &value, const std::string &line) {
 	std::istringstream	iss(value);
 	float				floatValue;
 

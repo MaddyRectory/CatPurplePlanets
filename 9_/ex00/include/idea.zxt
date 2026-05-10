@@ -48,7 +48,7 @@ retirer le module
 printfinal :
 [date] => [value argument] = resultat
 
-
+'\t' = caractere tab
 
 PROGRAMME BitcoinEx
 ═══════════════════════════════════════════════
