@@ -25,6 +25,7 @@
 #include <typeinfo>
 #include <cfloat>
 
+// ----------------------------- CLASS
 
 class BitcoinEx {
 
@@ -36,6 +37,7 @@ class BitcoinEx {
 		void		displayPrice(std::string &value, std::string &date);
 		std::string	trimWhiteSpaces(std::string &line);
 		bool		lineIsValid(std::string &key, std::string &value, const std::string &line);
+		bool 		dateIsValid(std::string &date);
 	
 	public :
 		BitcoinEx();
@@ -48,9 +50,8 @@ class BitcoinEx {
 		void							getAndDisplay(char **av);
 };
 
-/**
- * ! EXCEPTIONS
- */
+// ----------------------------- EXCEPTIONS
+
 
 	class NotPositifNumber : public std::exception {
 	public :
@@ -75,7 +76,7 @@ class BitcoinEx {
 	class InvalidInputFile : public std::exception {
 	public :
 		virtual const char *what() const throw() {
-			return RED "Error: Invalid Input File" RESET;
+			return RED "Error: Invalid Header in File" RESET;
 		}
 };
 
