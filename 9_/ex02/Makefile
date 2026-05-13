@@ -6,14 +6,14 @@
 #    By: mairivie <mairivie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 14:00:22 by mairivie          #+#    #+#              #
-#    Updated: 2026/01/21 14:08:25 by mairivie         ###   ########.fr        #
+#    Updated: 2026/05/12 15:27:56 by mairivie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = template
+NAME = Pmerge
 
 SRCS = main.cpp
 	

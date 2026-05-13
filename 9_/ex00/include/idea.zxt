@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 requirement 
 
 
@@ -177,3 +178,44 @@ MAIN
     RETOURNER 0
 
     
+=======
+
+Check arg :
+- ac == 2 (file name)
+- test open => Error: Could Not Open file
+
+Construct database :
+map date | value (date = key)
+
+input database :
+    take ligne apres ligne 
+
+    parsing ligne 
+        si error input (forb char, char missing) => Error: Bad Input
+        si error parsing date => Error: unvalid date
+        si error date trop tot => Error: Invalid date (car on doit prendre valeur inf)
+        si error neg number => Error: not a positiv nimber
+        si error superior intmax => Error: too large number
+
+        si ok on a : date_valide | valid float or positiv integrer
+
+    print first part 
+        "[date] => [valid nb] = "
+
+    chercher dans la DB - map - key qui correspond a la date valide
+        si existe 
+            result = [valid nb] * [price] 
+            => print result
+        si existe pas 
+            cherche date precedente la plus proche
+            result = [valid nb] * [price_old_date] 
+            => print result
+    
+    next line
+
+    
+
+
+
+
+>>>>>>> 1497ab3 (backup idea_files)

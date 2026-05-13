@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Container used :
 ex00 : multimap (key/value triee) + (key doublons autorisees)
 
@@ -27,3 +28,44 @@ Switch case selon sign
     default: throw error
 
 put result in acnext
+=======
+
+Check arg :
+    - ac >= 4 (sinon operation pas possible) TODO: test pour confirmer cette info
+
+Creation d'une pile (ou reverse queue) :
+    stocker chaque arg dedans 
+        - check valid char only [number + - / *]
+        - check size av
+
+je veux un contener iteratif je pense 
+
+var operator: first char not nb
+var size: nb of nb before operator
+
+while size
+nb operator nb operator nb
+calcul
+
+https://www.rebeccaskinner.net/posts/2025-03-21-rpn-in-c.html
+
+============================
+LOVE THIS IDEA 
+===========================
+
+     Reverse Polish Notation (RPN)
+
+Reverse Polish Notation (RPN) is a stack based notation for arithmatic operations. It has something of a cult following, especially among the kind of people who have strong sentimental attachments to certain brands of calculators. For our purposes, it’s also a great problem because the implementation is extremely simple.
+
+In an RPN notation expression, each numeric value pushes a value onto a stack. An operator pops two values off of the stack and then pushes the result of the binary operation back onto the stack. For example, if we had an expression like 2 1 1 + * 3 - we’d get a value of 1:
+input 	stack 	description
+2 	[2] 	push 2
+1 	[1,2] 	push 1
+1 	[1,1,2] 	push 1
++ 	[2,2] 	pop 1, pop 1, push (1 + 1)
+* 	[4] 	pop 2, pop 2, push (2 * 2)
+3 	[3,4] 	push 3
+- 	[1] 	pop 3, pop 4, push (4 - 3)
+
+This is a perfect problem for an unhinged solution because it’s simple enough to understand and solve in a straighforward manner that we can put all of our energy into over-complicating things for fun.
+>>>>>>> 1497ab3 (backup idea_files)
