@@ -67,16 +67,25 @@ bool	BitcoinEx::lineIsValid(std::string &key, std::string &value, const std::str
 
 bool	BitcoinEx::dateIsValid(std::string &date){
 
-	int year = std::atoi(date.substr(0,3).c_str());
+	int year = std::atoi(date.substr(0,4).c_str());
 	int month = std::atoi(date.substr(5,6).c_str());
 	int day = std::atoi(date.substr(8,9).c_str());
 
+	std::cout << year << " m:" << month << " d:" << day << "\n";
+
 	if (month < 1 || month > 12)
 		return false;
-	if (year < 1 || day < 1 || day > 31)
+	if (year < 2008 || day < 1 || day > 31)
 		return false;
 	if (month == 4 || month == 6 || month == 9 || month == 11)
-		return (day > 30);
+		return (day <= 30);
+	if (month == 2) {
+		//std::cout << year << " " << (year % 4) << "\n";
+		if (year % 4 != 0)
+			return (day <= 28);
+		else
+			return (day <= 29);
+	}
 	return true;
 }
 
