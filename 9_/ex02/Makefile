@@ -13,7 +13,7 @@
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = Pmerge
+NAME = Pmerge.out
 
 SRCS = main.cpp
 	
