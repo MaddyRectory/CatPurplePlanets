@@ -15,7 +15,7 @@ CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
 NAME = Pmerge.out
 
-SRCS = main.cpp
+SRCS = main.cpp PmergeMe.cpp
 	
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
