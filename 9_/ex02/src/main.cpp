@@ -9,13 +9,17 @@ int main(int ac, char **av) {
     
 
     try {
-        clock_t start_time = clock();
-//       std::vector<int> lambda = check_arg(ac, av);
-//        std::cout << "unsorted sequence: ";
         checkArgInt(ac, av);
-        std::cout << start_time << " tics; end: " << clock() << " ics\n";
-//        printNumbers(lambda);
-
+        clock_t start_time = clock();
+        std::cout << start_time << " tics; \n";
+        std::vector<int> vec = initContainer(ac, av);
+        std::sort(vec.begin(), vec.end());
+        std::cout << clock() << " tics now; dif: " << (clock() - start_time) << " tics\n";
+        start_time = clock();
+        std::cout << start_time << " tics; \n";
+        std::list<int> list = initList(ac, av);
+        list.sort();
+        std::cout << clock() << " tics now; dif: " << (clock() - start_time) << " tics\n";      
     }
     
     catch (const std::exception &e) {
