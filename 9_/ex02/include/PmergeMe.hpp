@@ -52,15 +52,17 @@ void swap(T & a, T & b) {
     b = temp;
 }
 
-/*
 template <typename T>
-void	printNumbers(T storage) {
-	std::cout << "Stored values: ";
-	for (T::iterator it = storage.begin(); it != storage.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;	
+void print(T & container, std::string name) {
+    std::cout << name << " [ ";
+    
+    typename T::iterator it = container.begin();
+    while(it != container.end()) {
+            std::cout << *it << " ";
+            ++it;    
+    }
+    std::cout << " ]" << std::endl;
 }
-    */
 
 // ===== Re-utilisation de l'easyfind du 08 =====
 //modif a faire pour que ça throw si un doublon est trouvé
@@ -91,18 +93,6 @@ typename T::iterator easyfind(T & container, int a) {
 //     }
 //     throw std::exception("no occurence found");
 // }
-
-template <typename T>
-void print(T & container, std::string name) {
-    std::cout << name << " [ ";
-    
-    typename T::iterator it = container.begin();
-    while(it != container.end()) {
-            std::cout << *it << " ";
-            ++it;    
-    }
-    std::cout << " ]" << std::endl;
-}
 
 // ===== SOURCES =====
 

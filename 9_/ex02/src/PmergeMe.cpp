@@ -17,7 +17,8 @@ std::vector<int> initContainer(int ac, char **av){
             throw ArgNotANumber();
         result.push_back(std::atoi(av[i]));
     }
-    std::cout << OLIVE "DEBUG: fin initContainerVector" RESET << std::endl;    
+    std::cout << OLIVE "DEBUG: fin initContainerVector" RESET << std::endl;
+    print<std::vector<int> >(result, "vec init");   
     return result;
 }
 
@@ -29,7 +30,8 @@ std::list<int> initList(int ac, char **av){
             throw ArgNotANumber();
         result.push_back(std::atoi(av[i]));
     }
-    std::cout << OLIVE "DEBUG: fin initLIST" RESET << std::endl;    
+    std::cout << OLIVE "DEBUG: fin initLIST" RESET << std::endl; 
+    print<std::list<int> >(result, "list init");      
     return result;
 }
 
