@@ -20,7 +20,7 @@ std::vector<int> initVector(int ac, char **av){
         result.push_back(std::strtol(av[i], NULL, 10));
     }
     std::cout << OLIVE "DEBUG: fin initContainerVector" RESET << std::endl;
-    print<std::vector<int> >(result, "Vector_ready");   
+//    print<std::vector<int> >(result, "Vector_ready");   
     return result;
 }
 
@@ -65,7 +65,6 @@ std::vector<int> vecFordJohnson(std::vector<std::pair<int,int> > vecPair, std::v
         big.push_back(vecPair[i].first);
         small.push_back(vecPair[i].second);
     }
-    (void)straggler;
 
     print<std::vector<int> >(result, "vecResult:");
     print<std::vector<int> >(big, "vecBig:");
@@ -75,16 +74,22 @@ std::vector<int> vecFordJohnson(std::vector<std::pair<int,int> > vecPair, std::v
     {
         int limit = std::min(jacob[k], (int)small.size());
         
-        for (int i = limit; i > jacob[k-1]; i--)
+        int i = limit;
+        while (i > jacob[k-1]) 
         {
-            std::vector<int>::iterator max_bound = std::find(result.begin(), result.end(), big[i-1]);
-            std::vector<int>::iterator pos = std::upper_bound(result.begin(), max_bound, small[i-1]);
-            result.insert(pos, small[i-1]);
-            print<std::vector<int> >(result, "-vecResult: ");
+            i--; //décalage entre indices du vector Jacob et du vector result => on adapte i ici.
+            std::vector<int>::iterator max_bound = std::find(result.begin(), result.end(), big[i]);
+            std::vector<int>::iterator pos = std::upper_bound(result.begin(), max_bound, small[i]);
+            result.insert(pos, small[i]);
         }
     }
+    print<std::vector<int> >(result, ".\nvecResult before straggler:");
+    if (straggler != -1) {
+        std::vector<int>::iterator pos = std::upper_bound(result.begin(), result.end(), straggler);
+        result.insert(pos, straggler);
+    }
 
-    print<std::vector<int> >(result, "..\nvecResult:");
+    print<std::vector<int> >(result, "vecResult after:");
 
     return result;
 }
