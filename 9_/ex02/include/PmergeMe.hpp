@@ -25,8 +25,11 @@
 #include <typeinfo>
 
 void	checkArgInt(int ac, char **av);
-std::vector<int> initContainer(int ac, char ** av);
-std::list<int> initList(int ac, char **av);
+std::vector<int> initVector(int ac, char ** av);
+std::deque<int> initDeque(int ac, char **av);
+std::vector<int> calc_only_js_needed(int ac);
+std::vector<std::pair<int,int> >  create_pairs(std::vector<int> container);
+
 
 class ArgNotANumber : public std::exception {
 public :

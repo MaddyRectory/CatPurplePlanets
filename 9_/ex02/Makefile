@@ -13,7 +13,7 @@
 CPP       = c++
 CPPFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-NAME = Pmerge.out
+NAME = pmerge.out
 
 SRCS = main.cpp PmergeMe.cpp
 	
@@ -26,7 +26,8 @@ DEP = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.d))
 
 
 all: $(NAME)
-	@echo "-----\nAll good ! Use ./$(NAME) to start the program\n-----"
+	@echo "-----\nAll good ! Use ./$(NAME) [int_list_with_spaces_as_separator] to start the program\n-----"
+
 .PHONY: all
 
 $(NAME): $(OBJ)
