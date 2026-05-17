@@ -29,6 +29,7 @@ std::vector<int> initVector(int ac, char ** av);
 std::deque<int> initDeque(int ac, char **av);
 std::vector<int> calc_only_js_needed(int ac);
 std::vector<std::pair<int,int> >  create_pairs(std::vector<int> container);
+std::vector<int> vecFordJohnson(std::vector<std::pair<int,int> > vecPair, std::vector<int> jacob, int straggler);
 
 
 class ArgNotANumber : public std::exception {

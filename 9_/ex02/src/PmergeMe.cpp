@@ -40,8 +40,55 @@ std::vector<std::pair<int,int> >  create_pairs(std::vector<int> container) {
         std::cout << "( "<< result[j].first << ", "<< result[j].second << ")\n"; 
         j++;
     }
+    std::sort(result.begin(), result.end());
+
+    j = 0;
+    while (j < (int)result.size()) {
+        std::cout << "... ( "<< result[j].first << ", "<< result[j].second << ")\n"; 
+        j++;
+    }
+
     return result;
 }
+
+std::vector<int> vecFordJohnson(std::vector<std::pair<int,int> > vecPair, std::vector<int> jacob, int straggler) {
+    std::vector<int> result;
+    std::vector<int> big;
+    std::vector<int> small;
+
+    result.reserve(vecPair.size() * 2 + 1);
+    small.reserve(vecPair.size());
+    small.reserve(vecPair.size());
+
+    for(int i = 0; i < (int)vecPair.size(); i++) {
+        result.push_back(vecPair[i].first);
+        big.push_back(vecPair[i].first);
+        small.push_back(vecPair[i].second);
+    }
+    (void)straggler;
+
+    print<std::vector<int> >(result, "vecResult:");
+    print<std::vector<int> >(big, "vecBig:");
+    print<std::vector<int> >(small, "vecSmall:");
+
+    for (int k = 1; k < (int)jacob.size(); k++)
+    {
+        int limit = std::min(jacob[k], (int)small.size());
+        
+        for (int i = limit; i > jacob[k-1]; i--)
+        {
+            std::vector<int>::iterator max_bound = std::find(result.begin(), result.end(), big[i-1]);
+            std::vector<int>::iterator pos = std::upper_bound(result.begin(), max_bound, small[i-1]);
+            result.insert(pos, small[i-1]);
+            print<std::vector<int> >(result, "-vecResult: ");
+        }
+    }
+
+    print<std::vector<int> >(result, "..\nvecResult:");
+
+    return result;
+}
+
 
 std::vector<int> calc_only_js_needed(int nb_pair) {
     std::vector<int> jacobsthal;

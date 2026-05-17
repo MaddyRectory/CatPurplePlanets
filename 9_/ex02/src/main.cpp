@@ -17,7 +17,13 @@ int main(int ac, char **av) {
         std::vector<int> jacob = calc_only_js_needed(nb_pair);
 
         std::vector<int> vec = initVector(ac, av);
+        int straggler = -1;
+        if (vec.size() % 2 != 0)
+            straggler = vec.back();
+        if (straggler > 0)
+            std::cout << OLIVE "There is a straggler and its value is: " << straggler << RESET " \n";
         std::vector<std::pair<int,int> > vecPair = create_pairs(vec);
+        std::vector<int> final = vecFordJohnson(vecPair, jacob, straggler);
         
         /*
         std::deque<int> dek = initDeque(ac, av);
